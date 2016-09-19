@@ -1,5 +1,9 @@
 {
-    "Title" : "Geeky Web Ninja"
+    "Name" : {
+       "Fullname" : "Mohana Krishna Padda"
+       , "Webname" : "KrishCdbry"
+     }
+     , "Title" : "Geeky Web Ninja"
      ,  "Self-taught" : true
      ,  "Motivated" : true
      ,  "Passionated" : true
@@ -7,10 +11,68 @@
      ,  "Interests" :  [ "developing quality products", "solve interesting problems", "learning new technologies" ]     
 
      , "Specialties" : ["JavaScript", "Angular", "Node", "PHP", "Mysql"]
-     , "Sills" : []
-     , "linkedin" : {
-          "_links" : {
-              "href" : "http://in.linkedin.com/in/krishcdbry"
-          }
+     , "Sills" : ["HTML", "CSS", "Javascript", "Jquery", "Ajax", "NodeJs", "AngularJs", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
+     , "Contact" : { 
+	     "linkedin" : {
+	           "href" : "http://in.linkedin.com/in/krishcdbry"
+	     }
+	     , "twitter" : {
+	           "href" : "http://twitter.com/krishcdbry"
+	     }
+	     , "github" : {
+	           "href" : "https://github.com/krishcdbry"
+	     }
+	     , "stackoverflow" : {
+	           "href" : "https://stackoverflow.com/krishcdbry"
+	     }
+         , "npm" : {
+               "href" : "https://www.npmjs.com/~krishcdbry"
+         } 
+         , "skype" : {
+               "href" : "krishcdbry"
+         }
+         , "email" : "krishcdbry@gmail.com"
+         , "phone" : "91-7042836146"
      }
-}     
+     , "Websites" : [
+        {
+          "name" : "Heartynote"
+          , "title" : "Online interactive dairy"
+          , "href" : "http://heartynote.com"
+        } 
+       , {
+         "name" : "Haifriend"
+         , "title" : "A world for your dearest one's"
+         , "href" : "http://haifriend.com"
+       }
+       , {
+         "name" : "The Node & Javascript"
+         , "title" : "The node and javascript stuff"
+         , "href" : "http://thenodejs.com"
+       }
+     ]
+     , "Publications" : {
+         "count" : 3
+         , "total" : 5
+         , "more" : {
+            "href" : "https://www.npmjs.com/~krishcdbry"
+         }
+         , "_embedded" : [
+	           {
+	           "name" : "npm-array-rotation"
+	           , "version" : "v1.0.1"
+	           , "href" : "https://www.npmjs.com/package/npm-array-rotation"
+	         } 
+	         , {
+	           "name" : "npm-text-parser"
+	           , "version" : "v1.0.8"
+	           , "href" : "https://www.npmjs.com/package/npm-text-parser"
+	         } 
+	         , {
+	           "name" : "url-scraper"
+	           , "version" : "v1.0.2"
+	           , "href" : "https://www.npmjs.com/package/url-scraper"
+	         } 
+         ]
+     }
+}; 
