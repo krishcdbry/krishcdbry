@@ -9,8 +9,8 @@
      , "Specialties" : ["JavaScript", "Angular", "Node", "PHP", "Mysql"]
      , "Sills" : []
      , "linkedin" : {
-          _links : {
-              href : "http://in.linkedin.com/in/krishcdbry"
+          "_links" : {
+              "href" : "http://in.linkedin.com/in/krishcdbry"
           }
      }
 }     
