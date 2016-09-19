@@ -1,16 +1,16 @@
 {
-    'Title' : 'Geeky Web Ninja'
-     ,  'Self-taught' : true
-     ,  'Motivated' : true
-     ,  'Passionated' : true
-     ,  'focused' : true
-     ,  'Interests' :  [ 'developing quality products', 'solve interesting problems', 'learning new technologies' ]     
+    "Title" : "Geeky Web Ninja"
+     ,  "Self-taught" : true
+     ,  "Motivated" : true
+     ,  "Passionated" : true
+     ,  "focused" : true
+     ,  "Interests" :  [ "developing quality products", "solve interesting problems", "learning new technologies" ]     
 
-     , 'Specialties' : ['JavaScript', 'Angular', 'Node', 'PHP', 'Mysql']
-     , 'Sills' : []
-     , 'linkedin' : {
+     , "Specialties" : ["JavaScript", "Angular", "Node", "PHP", "Mysql"]
+     , "Sills" : []
+     , "linkedin" : {
           _links : {
-            href : 'http://in.linkedin.com/in/krishcdbry'
+              href : "http://in.linkedin.com/in/krishcdbry"
           }
      }
 }     
