@@ -12,28 +12,6 @@
 
      , "Specialties" : ["JavaScript", "Angular", "Node", "PHP", "Mysql"]
      , "Sills" : ["HTML", "CSS", "Javascript", "Jquery", "Ajax", "NodeJs", "AngularJs", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
-     , "Contact" : { 
-	     "linkedin" : {
-	           "href" : "http://in.linkedin.com/in/krishcdbry"
-	     }
-	     , "twitter" : {
-	           "href" : "http://twitter.com/krishcdbry"
-	     }
-	     , "github" : {
-	           "href" : "https://github.com/krishcdbry"
-	     }
-	     , "stackoverflow" : {
-	           "href" : "https://stackoverflow.com/krishcdbry"
-	     }
-         , "npm" : {
-               "href" : "https://www.npmjs.com/~krishcdbry"
-         } 
-         , "skype" : {
-               "href" : "krishcdbry"
-         }
-         , "email" : "krishcdbry@gmail.com"
-         , "phone" : "91-7042836146"
-     }
      , "Websites" : [
         {
           "name" : "Heartynote"
@@ -75,4 +53,26 @@
 	         } 
          ]
      }
+     , "Contact" : { 
+	     "linkedin" : {
+	           "href" : "http://in.linkedin.com/in/krishcdbry"
+	     }
+	     , "twitter" : {
+	           "href" : "http://twitter.com/krishcdbry"
+	     }
+	     , "github" : {
+	           "href" : "https://github.com/krishcdbry"
+	     }
+	     , "stackoverflow" : {
+	           "href" : "https://stackoverflow.com/krishcdbry"
+	     }
+         , "npm" : {
+               "href" : "https://www.npmjs.com/~krishcdbry"
+         } 
+         , "skype" : {
+               "href" : "krishcdbry"
+         }
+         , "email" : "krishcdbry@gmail.com"
+         , "phone" : "91-7042836146"
+     }  
 }
