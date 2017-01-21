@@ -11,7 +11,7 @@
      ,  "Interests" :  [ "developing quality products", "solve interesting problems", "learning new technologies" ]     
 
      , "Specialties" : ["JavaScript", "Angular", "Node", "PHP", "Mysql"]
-     , "Sills" : ["HTML", "CSS", "Javascript", "Jquery", "Ajax", "NodeJs", "AngularJs", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
+     , "Sills" : ["HTML", "CSS", "Javascript", "Jquery", "Ajax", "NodeJs", "AngularJs",  "React", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
      , "Websites" : [
         {
           "name" : "Heartynote"
@@ -28,10 +28,15 @@
          , "title" : "The node and javascript stuff"
          , "href" : "http://thenodejs.com"
        }
+      ,  {
+	  "name" : "More"
+	  , "title" : "More.."
+	  , "href" : "http://krishcdbry.com"
+      }      
      ]
      , "Publications" : {
          "count" : 3
-         , "total" : 5
+         , "total" : 6
          , "more" : {
             "href" : "https://www.npmjs.com/~krishcdbry"
          }
