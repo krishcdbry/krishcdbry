@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Krishcdbry</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+	<meta content='krishcdbry' name='krishcdbry'/>
+	<meta content='krishcdbry' name='author'/>
+	<meta name="ROBOTS" content="INDEX, FOLLOW">
+	<meta name="GOOGLEBOT" content="INDEX, FOLLOW">
+	<meta name="MSNBOT" content="INDEX, FOLLOW">
+	<meta name="SLURP" content="INDEX, FOLLOW">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.65">
+	<link rel="canonical" href="http://krishcdbry.heartynote.com"/>
+	<link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/krish.css">
+</head>
+<body class="class-one">
+<div class="top-border"></div>
+<div class="top-right">
+	<a class="theme-thumb class-one" data-value="class-one" data-type="color">5</a>
+	<a class="theme-thumb class-two" data-value="class-two" data-type="color">5</a>
+	<a class="theme-thumb class-three" data-value="class-three" data-type="color">5</a>
+	<a class="theme-thumb class-four" data-value="class-four" data-type="color">5</a>
+	<a class="theme-thumb class-five" data-value="class-five" data-type="color">5</a>
+</div>
+<section class="canvas-wrap">
+	<div id="canvas" class="gradient"></div>
+</section>
+
+<div class="main">
+	<div class="left">
+		<div class="about-me">
+			<center>
+				<br>
+				<span class="hi">I'm </span><br>
+				<span class="name">
+					<span class="letter" id="big1">M</span><span class="letter">o</span><span class="letter">h</span><span class="letter">a</span><span class="letter">n</span><span class="letter">a</span>
+
+					<span class="letter" id="big2">K</span><span class="letter">r</span><span class="letter">i</span><span class="letter">s</span><span class="letter">h</span><span class="letter">n</span><span class="letter">a</span>
+
+					<span class="letter" id="big3">P</span><span class="letter">a</span><span class="letter">d</span><span class="letter">d</span><span class="letter">a</span>
+				</span>
+				<span class="webname">@krishcdbry | Frontend Developer</span> <br>
+			</center>
+		</div>
+		<div class="block info-block">
+			<center>
+				<div class="info info-one"> 24 <i>Years</i></div>
+				<div class="info info-two"> 11+ <i>Sites</i></div>
+				<div class="info info-one"> 3+ <i>Exp </i></div>
+				<div class="info info-one"> 45+ <i>Repos </i></div>
+				<div class="info info-one"> 9+ <i> Npm's </i></div>
+			</center>
+		</div>
+
+		<div class="contact">
+			<a href="http://linkedin.com/in/krishcdbry" class="link"><i class="fa fa-linkedin"></i></a>
+			<a href="http://twitter.com/krishcdbry" class="link"><i class="fa fa-twitter"></i></a>
+			<a href="http://facebook.com/krishcdbry" class="link"><i class="fa fa-facebook"></i></a>
+			<a href="http://github.com/krishcdbry" class="link"><i class="fa fa-github"></i></a>
+			<a href="http://stackoverflow.com/users/3800824/krishcdbry" class="link"><i class="fa fa-stack-overflow"></i></a>
+		</div>
+	</div>
+</div>
+<div class="black">
+	<div class="main">
+		<div class="left">
+			<div class="about-me">
+				<center>
+					<br>
+					<span class="hi">I'm </span><br>
+				</center>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script src="assets/js/three.min.js"></script>
+<script src="assets/js/projector.js"></script>
+<script src="assets/js/canvas-renderer.js"></script>
+<script src="assets/js/3d-lines-animation.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+	var letterElem = document.getElementsByClassName('letter');
+	var linkElems = document.getElementsByClassName('link');
+	var btnElems = document.getElementsByClassName('theme-thumb');
+
+	function bounceLetters() {
+		var j=0;
+		for (j; j < letterElem.length; j++) {
+			letterElem[j].className = 'letter';
+			(function(elem, j) {
+				setTimeout(function() {
+					elem.className = 'letter bounceAnim';
+				}, 2000+10*j)
+			})(letterElem[j], j);
+		}
+	}
+
+	function rotateLinks() {
+		var z = 0;
+		for (z; z < linkElems.length; z++) {
+			linkElems[z].className = 'link circularAnim';
+		}
+	}
+
+	function setThemeButtons () {
+		var i = 0;
+		for (i; i < btnElems.length; i++) {
+			(function(btn) {
+				btn.addEventListener('click', function() {
+					if (btn.dataset.type == 'color') {
+						$('.black').show();
+						setTimeout(function() {
+							document.body.className = '';
+							$('body').toggleClass(btn.dataset.value, 1000, "easeInBack" );
+							$('.black').fadeOut('slow');
+						}, 2000);
+						bounceLetters();
+					}
+				});
+			})(btnElems[i]);
+		}
+	}
+
+	setTimeout(function() {
+		document.getElementsByClassName('name')[0].className = 'name zoom';
+		rotateLinks();
+		bounceLetters();
+	}, 2200);
+
+	setThemeButtons();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+
+# Redirect to HTML if it exists.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
+
+# Redirect to PHP if it exists.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+RewriteBase /krishcdbry_a_krishcdbry_A/
+
+
+ErrorDocument 400 /error.php
+ErrorDocument 401 /error.php
+ErrorDocument 403 /error.php
+ErrorDocument 500 "Oops!! Something went wrong"
+ErrorDocument 510 "Server gone wild.."
+ErrorDocument 502 /error.php
+ErrorDocument 504 /error.php

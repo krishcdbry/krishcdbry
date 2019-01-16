@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mohana Krishna Padda</title>
+    
+    <meta content='krishcdbry' name='Mohana Krishna'/>
+	<meta name="description" content="A Geeky Web Ninja — Eating Javascript, Breathing Code, Dreaming Optimization, Building Crazy Stuff, Always up for new Challenges."/>
+	<meta name='keywords' content='krishcdbry, krish, cdbry, mohana, mohana krishna, krish, heartynote, imprso, haifriend'/>
+	<meta content='english' name='language'/>
+	<meta content='krishcdbry' name='author'/>
+	<meta content='krishcdbry(c)krishcdbry 2018' name='copyright'/>
+	<meta content='krishcdbry@gmail.com' name='Email'/>
+	<meta charset='UTF-8'/>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="static-stuff/css/main.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body onload="pageReady()">
+<div class="home">
+	<div class="intro">
+		<video preload="auto" autoplay loop poster="static-stuff/images/bg.jpeg" id="bgvid" muted>
+			<source src="static-stuff/videos/main-video.webm" type="video/webm">
+			<source src="static-stuff/videos/main-video.webm" type="video/mp4">
+		</video>
+		<audio autoplay loop style="opacity:0;position:fixed;z-index:-1" id="bgAudio">
+			<source src="static-stuff/videos/waves.mp3" type="audio/mpeg">
+		</audio>
+		<div id="wrapper">
+		</div>
+		<div id="main-body">
+			<center>
+				<div class="main-content">
+                    <span>
+                       Welcome..!
+                    </span>
+                    <div class="quote">
+                       <br>
+					   <sup><span class="fa fa-quote-left"></span></sup>
+                       The MAN standing STRONG can turn the TIDE
+					   <sup><span class="fa fa-quote-right"></span></sup>
+                   </div>
+				</div>
+				<div class="click-me">
+					<a href="krish">
+						<span class="click-me-button">
+							Enter >>
+						</span>
+					</a>
+				</div>
+			</center>
+		</div>
+	</div>
+    <div class="load-wrapper" id="load-wrapper"></div>
+	<div class="loader">
+		<div class="item">
+			var x = {'value': 9};
+		</div>
+		<div class="item">
+			var y = {};
+		</div>
+		<div class="item">
+			y.__proto__ = x;
+		</div>
+		<div class="item">
+			y.value; // 9
+		</div>
+                <div class="item">
+                        y.__proto__.__proto__; // Object
+                </div>
+                <div class="item">
+                       x.__proto__.__proto__; // null
+                </div>
+		<div class="item">
+			var z = function (args) {}
+		</div>
+		<div class="item">
+			Object.prototype.toString.call(z); // [object Function];
+		</div>
+	</div>
+	
+	<script>
+		let loader;
+		let loadWrapper;
+		let jsAnimation;
+		let backgroundAudio;
+		
+		class JSAnimation {
+		
+			constructor (elem, wrapperElem) {
+				this.elem = elem;
+				this.wrapperElem = wrapperElem;
+			}
+		
+			fadeOut () {
+				let opacity = 1;
+				const interval = setInterval(() => {
+					if (opacity <= 0.1) {
+						clearInterval(interval);
+						this.elem.style.opacity = 0;
+						this.elem.style['z-index'] = -1;
+						this.wrapperElem.style.display = 'none';
+					}
+					this.elem.style.opacity = opacity;
+					this.elem.style.filter = `alpha(opacity=${opacity*100})`;
+					opacity = opacity-opacity*0.1;
+				}, 50);
+			};
+		
+			fadeIn () {
+				let opacity = 0.1;
+				this.elem.style.opacity = opacity;
+				this.elem.style.display = 'block';
+				const interval = setInterval(() => {
+					if (opacity > 0.9) {
+						this.elem.style.opacity = 1;
+						clearInterval(interval);
+					}
+					this.elem.style.opacity = opacity;
+					this.elem.style.filter = `alpha(opacity: ${opacity*100})`;
+					opacity = opacity+opacity*0.1;
+				}, 50);
+			};
+		}
+		
+		const pageReady = () => {
+			loader = document.getElementsByClassName('loader')[0];
+			loadWrapper = document.getElementById('load-wrapper');
+			setTimeout(() => {
+				clearInterval(posInterval);
+				attachEvents();
+				jsAnimation = new JSAnimation(loader, loadWrapper);
+				jsAnimation.fadeOut();
+				backgroundAudio = document.getElementById("bgAudio");
+				backgroundAudio.volume = 0.3;
+				backgroundAudio.play();
+			}, 9000);
+		};
+		
+		const items = document.getElementsByClassName('item');
+		const Hmax = window.innerHeight-200;
+		const Lmax = window.innerWidth-200;
+		
+		const setPositions = () => {
+			for (let i = 0; i < items.length; i++) {
+				items[i].style.marginTop = `${Math.floor(Math.random() * (Hmax - 10 + 1) + 10).toString()}px`;
+				items[i].style.marginLeft = `${Math.floor(Math.random() * (Lmax - 10 + 1) + 10).toString()}px`;
+			}
+		};
+		
+		setPositions();
+		
+		var posInterval = setInterval(() => {
+			setPositions();
+		}, 18000);
+		
+		var attachEvents = () => {
+			window.addEventListener('visibilitychange', () => {
+				switch(document.visibilityState) {
+					case 'hidden' : 
+						backgroundAudio.muted = true;
+						break;
+					default : 
+						backgroundAudio.muted = false;
+						break;	
+				}
+			});
+		}
+
+	</script>
+	</div>
+</body>
+
+
+</html>

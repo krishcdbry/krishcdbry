@@ -1,0 +1,140 @@
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, menu, nav, output, ruby, section, summary, time, mark, audio, video, p, blockquote, pre, a, abbr, b, u, i, center, ol, ul, li, form, label, table, caption, tbody, tr, th, td, footer, header {
+	margin: 0;
+	padding: 0
+}
+
+footer, header, menu, nav, section {
+	display: block
+}
+
+ol, ul {
+	list-style: none
+}
+
+blockquote, q {
+	quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+*{
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+	-moz-transition: all 1s ease 0s;
+	-o-transition: all 1s ease 0s;
+	-ms-transition: all 1s ease 0s;
+}
+
+body {
+	font-family: "Trebuchet MS";
+	margin: 0 !important;
+	font-size: 12px;
+	line-height: 1.6;
+	/* background: url(http://static-note-i-1.heartynote.com/image/w.jpg); */
+	background-color: #c15151;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-font-smoothing: antialiased !important;
+	-box-font-smoothing: antialiased !important;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+video#bgvid {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	background: url(../images/bg.jpeg) no-repeat;
+	background-size: cover;
+}
+
+#wrapper {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 1;
+	background: url(../images/topbg.jpg) no-repeat;
+	background-size: cover;
+	opacity: 0.7;
+}
+
+#main-body {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 10;
+	background: transparent;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 17px;
+}
+
+span.click-me-button {
+	padding: 12px;
+	border: 1px solid #fff;
+	border-radius: 25px;
+}
+
+.click-me {
+	position: relative;
+	bottom: -120px;
+	padding: 50px;
+}
+
+.main-content {
+	position: relative;
+	margin-top: 20%;
+	padding: 50px;
+}
+
+.main-content > span {
+	color: #fff;
+	text-shadow: 0px 2px 2px #000;
+	font-size: 74px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+@media (max-width: 780px) {
+	.main-content > span {
+		font-size: 45px;
+	}
+
+	span.click-me-button {
+		padding: 12px;
+		border: 1px solid #fff;
+		border-radius: 25px;
+	}
+
+	a {
+		font-size: 15px;
+	}
+}
