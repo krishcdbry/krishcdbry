@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Krishcdbry</title>
+
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<style>
+		body {
+			font-family: "Trebuchet MS";
+			/*font-family: 'Open Sans', sans-serif;*/
+			margin: 0 !important;
+			font-size: 12px;
+			line-height: 1.6;
+		}
+
+		ul {
+			margin-top: 4px;
+		}
+
+		.main {
+			margin: 0px auto;
+			height: 2232px;
+			padding: 0 !important;
+			border-top: 4px solid limegreen;
+			border-bottom: 4px solid limegreen;
+		}
+
+		.right {
+			background: #fff;
+			width: 100%;
+			float: right;
+			height: 100%;
+		}
+
+
+		.about-section {
+			margin: 0px auto;
+			background: #c15151;
+			height: 203px;
+			overflow: auto;
+		}
+
+		.about-me {
+			float: left;
+			border-right: 1px solid indianred;
+		}
+
+		.contact-me {
+			float: right;
+		}
+
+
+		.about-section > div {
+			display: inline-block;
+			width: 350px;
+		}
+
+		.info-block {
+			background: indianred;
+			font-style: italic;
+			margin-top: 10px;
+			color: #fff;
+			text-align: center;
+		}
+		.info {
+			display: inline-block;
+			padding: 11px 27px;
+			font-size: 18px;
+			color: #fff;
+			text-align: center;
+		}
+
+		.info i {
+			display: block;
+			font-size: 11px;
+		}
+
+		.right .right-content {
+			padding: 10px 33px;
+			text-align: justify;
+			padding-left: 17px;
+		}
+
+		.left {
+			background: #c15151;
+			width: 35%;
+			float: left;
+			height: 100%;
+			color: #fff;
+		}
+
+		img.profile-pic {
+			border-radius: 50%;
+			height: 90px;
+			margin-top: 10px;
+			border: 3px solid #f0f0f0;
+		}
+
+		h2 {
+			margin-top: 3px;
+			font-size: 27px;
+			font-weight: 100;
+		}
+
+		.section-heading {
+			width: 100%;
+			height: 25px;
+			border-bottom: 1px solid #c15151;
+			margin-bottom: 22px;
+			background: #fff;
+		}
+
+		.section-heading span {
+			font-size: 19px;
+			background-color: #fff;
+			padding: 0 18px;
+			padding-left: 0px;
+			color: #c15151;
+		}
+
+		.section-heading span > i {
+			background: indianred;
+			padding: 13px;
+			border-radius: 29px;
+			color: #fff;
+		}
+
+		.section-heading.inverse {
+			border-bottom: 1px solid #ddd;
+			background: #c15151;
+		}
+
+		.section-heading.inverse span {
+			background-color: #c15151;
+			color: #fff;
+		}
+
+		.section-heading.inverse span > i {
+			background: #f0f0f0;
+			height: 16px;
+			width: 16px;
+			color: indianred;
+		}
+
+		.timeline {
+			float: right;
+			color: #555;
+		}
+
+		.about-me {
+			padding: 11px 15px;
+			background: #c15151;
+			color: #fff;
+		}
+
+		.about-me .name {
+			margin-top: 3px;
+			font-size: 19px;
+			font-weight: 100;
+			display: block;
+		}
+
+		.about-me .webname {
+			font-style: italic;
+		}
+
+		.about-me .title {
+
+		}
+
+		.block p {
+			text-align: justify;
+			padding-left: 5px;
+		}
+
+		.block {
+			padding: 0px 15px;
+			margin-top: 21px;
+		}
+
+		.block p i.fa {
+			font-size: 15px;
+			padding: 6px;
+			background: #fff;
+			height: 15px;
+			width: 15px;
+			color: #c15151;
+			margin: 3px;
+			margin-left: 0px;
+			text-align: center;
+			border-radius: 16px;
+		}
+
+		i.fa.code, i.fa.edu {
+			width: 21px !important;
+			height: 20px !important;
+			padding: 11px !important;
+		}
+
+		.config {
+			font-size: 10px;
+		}
+
+		.config span {
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+		}
+
+		.config span.ui {
+			background-color: #FF6600;
+			color: #ff6600;
+		}
+
+		.config span.ux {
+			background-color: #F8FF01;
+			color: #F8FF01;
+		}
+
+		.config span.ser {
+			background-color: #0D8ECF;
+			color: #0D8ECF;
+		}
+
+		.config span.db {
+			background-color: #0D52D1;
+			color: #0D52D1;
+		}
+
+		.config span.sw {
+			background-color: #8A0CCF;
+			color: #8A0CCF;
+		}
+
+		span.lite {
+			color: #d0d0d0;
+			font-size: 11px;
+			display: block;
+			margin-bottom: 11px;
+		}
+
+		.award-info {
+			margin-left: 6px;
+		}
+
+		.projects {
+			width: 100%;
+			height: 890px;
+			margin:0px auto;
+		}
+		.project {
+			width: 93%;
+			text-align: initial;
+			padding: 9px;
+		}
+
+		.project img.icon {
+			height: 35px;
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+
+		.project .fa.icon {
+			font-size: 15px;
+			background: #f0f0f0;
+			padding: 7px 10px;
+			border-radius: 50%;
+			height: 15px;
+			width: 11px;
+			text-indent: 0px;
+		}
+
+		.project .icon-content {
+			background: #f0f0f0;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+
+		.icon-content .inverse-icon {
+			height: 18px;
+			margin-left: 7px;
+			margin-top: 7px;
+		}
+
+		.project .project-name {
+			font-size: 15px;
+			vertical-align: middle;
+			padding-left: 9px;
+		}
+
+		.small {
+			font-size: 10px;
+			opacity: 0.7;
+			vert-align: middle;
+		}
+
+		.project .project-info {
+			border-top: 1px solid #f0f0f0;
+			margin-top: 7px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+
+		.project .link {
+			color: #777;
+			text-align: right;
+		}
+
+		.project .technologies {
+			width: 100%;
+			text-align: initial;
+		}
+
+		.technologies > div {
+			display: inline-block;
+			background: indianred;
+			padding: 2px 5px;
+			color: #fff;
+			border-radius: 2px;
+			font-style: italic;
+			margin: 1px 0px;
+			text-align: left;
+			font-size: 11px;
+		}
+
+		.hobbies-content i.fa{
+			font-size: 41px;
+			color: #c15151;
+		}
+
+		.hobbies-content div {
+			display: inline-block;
+			text-align: center;
+			padding: 0px 15px;
+		}
+
+
+		.contact.block {
+			color: #fff;
+			margin: 0px;
+			vertical-align: top;
+			position: relative;
+		}
+
+		.contact.block p i.fa {
+			font-size: 15px;
+			padding: 6px;
+			background: #fff;
+			height: 15px;
+			width: 15px;
+			color: #c15151;
+			margin: 9px;
+			margin-left: 0px;
+			text-align: center;
+			border-radius: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+
+	<div class="right">
+		<div class="about-section">
+			<div class="about-me">
+				<center>
+				<a href="http://krishcdbry.com">
+					<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAduAAAAJDM0ZTQ1ODk0LWFkZmYtNDBjMy04MzY0LWJhNDIxZTUzNTZlMQ.jpg" class="profile-pic" height="274px">
+				</a>
+				<br>
+				<span class="name">Srihari Naidu Pudu</span>
+				<span class="webname">@sriharinaidu | QA Analyst
+
+</span> <br>
+				<div class="title">
+					<i class="fa fa-map-marker"></i> Gurgaon, India
+				</div>
+				</center>
+			</div>
+			<div class="contact-me">
+
+				<div class="contact block">
+					<p>
+				<span>
+				    <i class="fa fa-linkedin"></i>
+				    linkedin.com/krishcdbry
+				</span>
+						<br/>
+						<span>
+				    <i class="fa fa-github"></i>
+				     github.com/krishcdbry
+				</span>
+						<br/>
+						<span>
+				    <i class="fa fa-facebook"></i>
+				     facebook.com/krishcdbry
+				</span>
+						<br/>
+						<span>
+				    <i class="fa fa-facebook"></i>
+				     facebook.com/krishcdbry
+				</span>
+					</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="block info-block" style="
+    margin-top: 0px;
+">
+			<div class="info info-one"> 24 <i> yrs </i></div>
+			<div class="info info-two"> 11+ <i>Sites</i></div>
+			<div class="info info-one"> 3+ <i>Exp </i></div>
+		</div>
+		<div class="right-content">
+			<div class="section-heading" style="
+    margin-top: 12px;
+">
+                    <span>
+                        <i class="fa fa-list-alt"></i>
+	                     Summary
+                    </span>
+			</div>
+			<ul>
+				<li>Around 3 years of professional experience writing <b>JavaScript</b>, <b>Jquery</b>, <b>AngularJS</b> and around 1.5 years writing php, python. Recently digging into ReactJS(JSX), Angular2 (Typescript).</li>
+				<li>  Developed &amp; launched a social network at the age of 19 :) . Around 5 years of personal experience in full stack development, Including deploying, hosting websites end to end. Hosted around 11 sites - 9 LAMP stack (3 AWS) , 1 Mean Stack (AWS) , 1 Django (AWS) sites.  </li>
+				<li>Solid understanding of <b>Browser components</b>, process &amp; <b>Rendering engine  </b>.</li>
+				<li>Experience coding against RESTful APIs. Wrote API’s with NodeJs, Php, Python (Django). In Love with <b>ES6</b></li>
+			</ul>
+
+			<div class="section-heading" style="margin-top:-5px;">
+                    <span>
+                        <i class="fa fa-briefcase"></i>
+	                    Experience
+                    </span>
+			</div>
+			<b>Misport (PitchVision), Gurgaon — <i>Frontend Lead Developer</i></b>
+			<i class="timeline">2014 Oct - Present</i>
+			<ul>
+				<li>
+					Developed scalable frontend stack from scratch.
+				</li>
+				<li>
+					Responsible for frontend development, management , tracking and maintaining various products on the
+					website.
+				</li>
+				<li>
+					Developed <b>PV-Review</b> - Includes (PV-splitter, PV-Canvas). Which can show analysis of more than <b>1 Million</b> deliveries using pv canvas UI for plotting. Made the canvas responsive and interactive, User can click on the plotted delivery to get the delivery information.
+				</li>
+				<li>
+					Developed <b>PV-Tv</b> - Includes (PV-Audio, PV-Video, Image, Doc) - An Interactive, Flexible media player with additional speed controls, playlist. Built on HTML5 Video player. Currently dealing with <b>millions</b> of videos using <b>PV-Playlist</b>.
+				</li>
+				<li>
+					Written reusable code and build many more interesting features like <b>Workload Tool (Graphical analysis of bowler stats) </b>, <b>PvNotes (Interactive widget with 4 GUI's can be trackable, smooth flow from any session)</b>, <b>Public Pages (Similar to facebook pages)</b>, <b>
+					Timeline (Filter by player) </b>, <b>Newsfeed (Public, Trending, Personal) </b> etc.
+				</li>
+				<li>
+					Working with the <b>UI/UX</b> team and bridging the gap between graphic design and technical
+					implementation, Interacting with <b>API team</b> frequently for making the integration perfect
+				</li>
+				<li>Managing a team of frontend developers which includes code reviews, meetings.</li>
+				<li>
+					Also responsible for taking the technical interviews for hiring the frontend developers.
+				</li>
+			</ul>
+
+
+			<b> Internshala, Gurgaon — <i> Web Application Developer </i></b>
+			<i class="timeline">2014 Jun - 2014 Oct</i>
+			<ul>
+				<li>Worked on Internshala's main portal. Mainly dealing with PHP, Doctrine(DQL), AWS and some core full
+					stack modules.
+				</li>
+				<li>Extended &amp; Improved student profile module.</li>
+			</ul>
+
+
+			<div class="section-heading">
+                    <span>
+                        <i class="fa fa-pie-chart"></i>
+	                    Skills
+                    </span>
+			</div>
+			<div class="config" style="float:right">
+				<span class="ui">db</span> UI Dev
+				<span class="ux">db</span> UI Design
+				<span class="ser">db</span> Backend Dev<br>
+				<span class="db">db</span> Database Dev
+				<span class="sw">db</span> Desktop sw
+			</div>
+			<img src="assets/skill.png" style="width:100%">
+
+
+			<div class="section-heading" style="padding-top:10px;">
+				<span>
+					<i class="fa fa-code"></i>
+					Personal Projects
+				</span>
+			</div>
+			<div class="projects">
+				<div class="one" style="float: left; width: 49%;height: 100%;">
+					<div class="project">
+						<span class="icon-content">
+							<img src="assets/heartynote.png" class="inverse-icon">
+						</span>
+						<span class="project-name">Heartynote</span>
+						<div class="project-info">
+							Heartynote is a social networking platform works like an online memorable diary , which connects people with their memories &amp; friends lifelong. Introduced <b>On this day</b> concept in 2013 before <b>Facebook</b> has introduced it.
+						</div>
+						<div class="technologies">
+							<div>Javascript </div>
+							<div> Jquery </div>
+							<div> Angular </div>
+							<div> LAMP Stack </div>
+							<div> HTML 5 </div>
+							<div> CSS3 </div>
+						</div>
+						<div class="link">heartynote.com</div>
+					</div>
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">Guess kitty JS</span>
+						<div class="project-info">
+							Guess kitty is a simple game with reactjs, Where player need to guess the block in which kitty presents and score depends on the attempts he used to find the kitty.
+						</div>
+						<div class="technologies">
+							<div>Javascript </div>
+							<div> ReactJS </div>
+							<div> HTML 5 </div>
+							<div> CSS3 </div>
+						</div>
+						<div class="link">guess-kitty.thenodejs.com</div>
+					</div>
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">Zangura</span>
+						<div class="project-info">
+							Prototype - A structured local shopping site where people can find the reviews of apparel , ratings, content and items sold in a particular shop/market &amp; many more features like maps, feed, profile etc.
+						</div>
+						<div class="technologies">
+							<div> Javascript </div>
+							<div> Angular </div>
+							<div> LAMP Stack </div>
+							<div> AWS </div>
+							<div> Codeignter </div>
+							<div> Bootstrap </div>
+						</div>
+						<div class="link">zangura.thenodejs.com</div>
+					</div>
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">Magik DOM Grid</span>
+						<div class="project-info">
+							A pure javascript grid in which every cell will be assigned a random color on click and also grid state can be saved until user resets it.
+						</div>
+						<div class="technologies">
+							<div> Javascript </div>
+							<div> HTML5 </div>
+							<div> CSS3 </div>
+							<div> AWS </div>
+						</div>
+						<div class="link">magik-dom-grid.thenodejs.com</div>
+					</div>
+					<!--<div class="project">-->
+					<!--<i class="fa fa-github icon"></i>-->
+					<!--<span class="project-name">The <i class="fa fa-behance"></i> </span>-->
+					<!--<div class="project-info">-->
+					<!--A single page multipurpose business template with 9 different sections.-->
+					<!--</div>-->
+					<!--<div class="technologies">-->
+					<!--<div> Javascript </div>-->
+					<!--<div> HTML5 </div>-->
+					<!--<div> CSS3 </div>-->
+					<!--<div> Bootstrap </div>-->
+					<!--</div>-->
+					<!--</div>-->
+				</div>
+				<div class="two" style="float: right; width: 50%;height: 100%;border-left: 1px solid #f0f0f0;">
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">ChatJS</span>
+						<div class="project-info">
+							A simple node chat application developed on MEAN stack. Includes some modules like profile media (Intro Video), chat with both Image, video, url scrapping preview etc.
+						</div>
+						<div class="technologies">
+							<div> Javascript </div>
+							<div> Angular </div>
+							<div> NodeJs </div>
+							<div> MongoDB </div>
+							<div> AWS </div>
+							<div> PM2 </div>
+							<div> Keymetrics </div>
+						</div>
+						<div class="link">chat.thenodejs.com</div>
+					</div>
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">Expand InputBox</span>
+						<div class="project-info">
+							Auto expanding Textarea which expands on entering data into it and shrinks back when data gets cleared. This widget has been implemented
+							in 3 ways Jquery, Angular, Material.
+						</div>
+						<div class="technologies">
+							<div> Javascript </div>
+							<div> Angular </div>
+							<div> Angular Material </div>
+							<div> Jquery </div>
+							<div> AWS </div>
+						</div>
+						<div class="link">expand-input-box.thenodejs.com</div>
+					</div>
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">Secret <i>11</i>
+						</span>
+						<span class="small"><i class="fa fa-code"></i> Under development</span>
+						<div class="project-info">
+							An anonymous social networking platform. Obviously users will be anonymous and can share their secrets, fantasies and stories in this anonymous planet.
+						</div>
+						<div class="technologies">
+							<div> Javascript </div>
+							<div> ReactJS </div>
+							<div> Bootstrap </div>
+							<div> Python </div>
+							<div> Django </div>
+							<div> Mysql </div>
+							<div> AWS </div>
+						</div>
+						<div class="link">secret11.com</div>
+					</div>
+					<div class="project">
+						<i class="fa fa-github icon"></i>
+						<span class="project-name">Net Cricket
+						</span>
+						<span class="small"><i class="fa fa-code"></i> In Progress</span>
+						<div class="project-info">
+							A funny cricket game similar to book cricket. Which includes modules like team creation, tournaments, click to score, save state etc.
+						</div>
+						<div class="technologies">
+							<div> Typescript </div>
+							<div> Angular2 </div>
+							<div> Ruby </div>
+							<div> HTML5 </div>
+							<div> Django </div>
+							<div> Bootstrap </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hobbies">
+				<div class="section-heading">
+                    <span>
+                        <i class="fa fa-star"></i>
+	                    Interests
+                    </span>
+				</div>
+				<br>
+				<div class="hobbies-content">
+					<div> <i class="fa fa-laptop"></i> <br> New Technologies  </div>
+					<div> <i class="fa fa-video-camera"></i> <br> Watching Movies </div>
+					<div> <i class="fa fa-plane"></i> <br> Travelling  </div>
+					<div> <i class="fa fa-quora"></i> <br> Reading Quora  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
