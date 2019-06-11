@@ -207,6 +207,30 @@ span.hi {
 	transform : rotate(360deg);
 }
 
+.guess-kitty {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 90px;
+}
+
+.guess-kitty a {
+	background: rgba(0,0,0,0.5);
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess-kitty i {
+	padding-left: 10px;
+	color: limegreen;
+}
+
 .top-left {
 	color: #fff;
 	text-align: center;
