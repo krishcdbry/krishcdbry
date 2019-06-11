@@ -55,10 +55,10 @@
 		</div>
 		<div class="block info-block">
 			<center>
-				<div class="info info-one"> 25 <i>Years</i></div>
-				<div class="info info-two"> 11+ <i>Sites</i></div>
-				<div class="info info-one"> 4+ <i>Exp </i></div>
-				<div class="info info-one"> 50+ <i>Repos </i></div>
+				<div class="info info-one"> 27 <i>Years</i></div>
+				<div class="info info-two"> 15+ <i>Projects</i></div>
+				<div class="info info-one"> 5+ <i>Exp </i></div>
+				<div class="info info-one"> 100+ <i>Repos </i></div>
 				<div class="info info-one"> 10+ <i> Npm's </i></div>
 			</center>
 		</div>
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 </div>
-<div class="black">
+<!-- <div class="black">
 	<div class="main">
 		<div class="left">
 			<div class="about-me">
@@ -82,7 +82,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
 <div class="resume">
@@ -124,12 +124,12 @@
 <script src="assets/js/3d-lines-animation.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script>
-	var letterElem = document.getElementsByClassName('letter');
-	var linkElems = document.getElementsByClassName('link');
-	var btnElems = document.getElementsByClassName('theme-thumb');
+	let letterElem = document.getElementsByClassName('letter');
+	let linkElems = document.getElementsByClassName('link');
+	let btnElems = document.getElementsByClassName('theme-thumb');
 
 	function bounceLetters() {
-		var j=0;
+		let j=0;
 		for (j; j < letterElem.length; j++) {
 			letterElem[j].className = 'letter';
 			(function(elem, j) {
@@ -141,24 +141,24 @@
 	}
 
 	function rotateLinks() {
-		var z = 0;
+		let z = 0;
 		for (z; z < linkElems.length; z++) {
 			linkElems[z].className = 'link circularAnim';
 		}
 	}
 
 	function setThemeButtons () {
-		var i = 0;
+		let i = 0;
 		for (i; i < btnElems.length; i++) {
 			(function(btn) {
 				btn.addEventListener('click', function() {
 					if (btn.dataset.type == 'color') {
-						$('.black').show();
+						//$('.black').show();
 						setTimeout(function() {
 							document.body.className = '';
 							$('body').toggleClass(btn.dataset.value, 1000, "easeInBack" );
-							$('.black').fadeOut('slow');
-						}, 2000);
+							//$('.black').fadeOut('slow');
+						}, 100);
 						bounceLetters();
 					}
 				});
