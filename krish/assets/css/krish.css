@@ -37,7 +37,7 @@ body {
 	margin: 0 !important;
 	font-size: 12px;
 	line-height: 1.6;
-	/* background: url(http://static-note-i-1.heartynote.com/image/w.jpg); */
+	height: 100vh;
 	background-color: #c15151;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -74,6 +74,13 @@ div.canvas-content{
 	padding-top:30px;
 }
 
+.main {
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+}
 
 span.hi {
 	text-shadow: 0px 9px 0px #29eb7f;
@@ -97,7 +104,10 @@ span.hi {
 }
 
 .about-me {
-	padding-top: 90px;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-me .name {
@@ -197,6 +207,30 @@ span.hi {
 	transform : rotate(360deg);
 }
 
+.guess-kitty {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 9999;
+}
+
+.guess-kitty a {
+	background: rgba(0,0,0,0.5);
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess-kitty i {
+	padding-left: 10px;
+	color: limegreen;
+}
+
 .top-left {
 	color: #fff;
 	text-align: center;
@@ -241,6 +275,7 @@ a.theme-thumb {
 	margin: 2px;
 	color: transparent;
 	border: 1px ridge #fff;
+	cursor: pointer;
 }
 
 a.theme-thumb.red {
