@@ -2,31 +2,34 @@
     "Name" : {
        "Fullname" : "Mohana Krishna Padda"
        , "Webname" : "KrishCdbry"
+       , "Designation" : "Engineering Lead"
+       , "Experience" : "5+ Years"
+       , "Location" : "Gurgaon, HR, IN"
      }
      , "Title" : "Geeky Web Ninja"
      ,  "Self-taught" : true
      ,  "Motivated" : true
      ,  "Passionated" : true
      ,  "focused" : true
-     ,  "Interests" :  [ "developing quality products", "solve interesting problems", "learning new technologies" ]     
+     ,  "Interests" :  [ "Developing quality products", "Solve interesting problems", "Learning new technologies" ]     
 
-     , "Specialties" : ["JavaScript", "Angular", "Node", "PHP", "Mysql"]
-     , "Sills" : ["HTML", "CSS", "Javascript", "Jquery", "Ajax", "NodeJs", "AngularJs",  "React", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
+     , "Specialties" : ["JavaScript", "React", "Redux", "Node", "PHP", "Mysql"]
+     , "Sills" : ["HTML", "CSS", "Javascript",  "React", "Redux", "Jquery", "Ajax", "NodeJs", "AngularJs", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
      , "Websites" : [
         {
           "name" : "Heartynote"
-          , "title" : "Online interactive dairy"
-          , "href" : "http://heartynote.com"
+          , "title" : "Online memorable dairy"
+          , "href" : "https://heartynote.com"
         } 
        , {
          "name" : "Haifriend"
          , "title" : "A world for your dearest one's"
-         , "href" : "http://haifriend.com"
+         , "href" : "https://haifriend.com"
        }
        , {
          "name" : "The Node & Javascript"
          , "title" : "The node and javascript stuff"
-         , "href" : "http://thenodejs.com"
+         , "href" : "https://blog.thenodejs.com"
        }
       ,  {
 	  "name" : "More"
@@ -34,7 +37,7 @@
 	  , "href" : "http://krishcdbry.com"
       }      
      ]
-     , "Publications" : {
+     , "NPM_Publications" : {
          "count" : 3
          , "total" : 6
          , "more" : {
