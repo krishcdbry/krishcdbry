@@ -13,7 +13,7 @@
      ,  "focused" : true
      ,  "Interests" :  [ "Developing quality products", "Solve interesting problems", "Learning new technologies" ]     
 
-     , "Specialties" : ["JavaScript", "React", "Redux", "Node", "PHP", "Mysql"]
+     , "Specialties" : ["JavaScript", "React", "Redux", "Python", "Node", "PHP", "Mysql"]
      , "Sills" : ["HTML", "CSS", "Javascript",  "React", "Redux", "Jquery", "Ajax", "NodeJs", "AngularJs", "PHP", "Mysql", "MongoDb", "Python", "Codeigniter", "Laravel", "Slim", "AWS", "Underscorejs", "Sass", "R", "Linux", "Perl", "Hacking", "Java", "C", "Testing"]
      , "Websites" : [
         {
