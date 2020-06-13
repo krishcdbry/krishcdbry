@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'Comfortaa';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url(../font/comfortaa.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
 html, body, div, span, h1, h2, h3, h4, h5, h6, menu, nav, output, ruby, section, summary, time, mark, audio, video, p, blockquote, pre, a, abbr, b, u, i, center, ol, ul, li, form, label, table, caption, tbody, tr, th, td, footer, header {
 	margin: 0;
 	padding: 0
@@ -33,7 +41,7 @@ table {
 }
 
 body {
-	font-family: "Trebuchet MS";
+	font-family: 'Comfortaa', cursive;
 	margin: 0 !important;
 	font-size: 12px;
 	line-height: 1.6;
@@ -84,7 +92,7 @@ div.canvas-content{
 
 span.hi {
 	text-shadow: 0px 9px 0px #29eb7f;
-	font-size: 172px;
+	font-size: 8rem;
 	-webkit-animation: hi 2s 1;
 	-moz-animation: hi 2s 1;
 	-o-animation: hi 2s 1;
@@ -104,14 +112,16 @@ span.hi {
 }
 
 .about-me {
-	display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    height: calc(100vh - 55px);
+    padding: 0px 10px;
+    box-sizing: border-box;
 }
 
 .about-me .name {
-	font-size: 72px;
+	font-size: 5rem;
 	font-weight: 100;
 	display: block;
 	-webkit-animation: name 2s 1;
@@ -127,6 +137,13 @@ span.hi {
 	font-style: italic;
 	font-size: 22px;
 	text-shadow: 0px 3px 11px #000;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+	align-items: flex-end;
+	flex-direction: column;
+	margin-bottom: 50px;
+	text-align: right;
 }
 
 .webname, .info {
@@ -138,17 +155,21 @@ span.hi {
 	position: relative;
 }
 
+.block p {
+	text-align: justify;
+	padding-left: 5px;
+}
 
-.info-block {
-	font-style: italic;
-	margin-top: 10px;
+.block {
+	margin-top: 21px;
+	display: flex;
 }
 
 .info {
-	display: inline-block;
-	padding: 11px 27px;
 	font-size: 27px;
 	text-align: center;
+	width: 72px;
+    margin: 0px 10px;
 }
 
 .info i {
@@ -172,25 +193,17 @@ span.hi {
 }
 
 
-.block p {
-	text-align: justify;
-	padding-left: 5px;
-}
-
-.block {
-	padding: 0px 15px;
-	margin-top: 21px;
-}
-
 .contact {
 	text-align: center;
-	margin-top: 7%;
 	-webkit-animation: social 2s 1;
 	-moz-animation: social 2s 1;
 	-o-animation: social 2s 1;
 	animation: social 2s 1;
-	opacity: 1 !important;
-	position: relative;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+	transform: translate(-50%, 0);
+	width: 100vw;
 }
 
 .contact a {
@@ -201,7 +214,7 @@ span.hi {
 	display: inline-block;
 	font-size: 32px;
 	color: #c15151;
-	margin: 15px;
+	margin: 5px 10px;
 	line-height: 1.9;
 	vertical-align: middle;
 }
@@ -967,8 +980,16 @@ a.theme-thumb:hover {
 
 }
 @media (max-width: 720px) {
+	span.hi {
+		font-size: 7rem;
+	}
+
 	.about-me .name {
-		font-size: 45px;
+		font-size: 2rem;
+	}
+
+	.webname {
+		font-size: 1.2rem;
 	}
 
    #big1,

@@ -3,12 +3,12 @@
 <head>
     <title>Mohana Krishna Padda</title>
     
-    <meta content='krishcdbry' name='Mohana Krishna'/>
+    <meta content='krishcdbry' name='Mohana Krishna Padda'/>
 	<meta name="description" content="A Geeky Web Ninja — Eating Javascript, Breathing Code, Dreaming Optimization, Building Crazy Stuff, Always up for new Challenges."/>
 	<meta name='keywords' content='krishcdbry, krish, cdbry, mohana, mohana krishna, krish, heartynote, imprso, haifriend'/>
 	<meta content='english' name='language'/>
 	<meta content='krishcdbry' name='author'/>
-	<meta content='krishcdbry(c)krishcdbry 2018' name='copyright'/>
+	<meta content='krishcdbry@2020' name='copyright'/>
 	<meta content='krishcdbry@gmail.com' name='Email'/>
 	<meta charset='UTF-8'/>
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
@@ -57,10 +57,10 @@
     <div class="load-wrapper" id="load-wrapper"></div>
 	<div class="loader">
 		<div class="item">
-			var x = {'value': 9};
+			let x = {'value': 9};
 		</div>
 		<div class="item">
-			var y = {};
+			let y = {};
 		</div>
 		<div class="item">
 			y.__proto__ = x;
@@ -75,13 +75,12 @@
                        x.__proto__.__proto__; // null
                 </div>
 		<div class="item">
-			var z = function (args) {}
+			let z = function (args) {}
 		</div>
 		<div class="item">
 			Object.prototype.toString.call(z); // [object Function];
 		</div>
 	</div>
-	
 	<script>
 		let loader;
 		let loadWrapper;
@@ -153,11 +152,11 @@
 		
 		setPositions();
 		
-		var posInterval = setInterval(() => {
+		let posInterval = setInterval(() => {
 			setPositions();
 		}, 18000);
 		
-		var attachEvents = () => {
+		let attachEvents = () => {
 			window.addEventListener('visibilitychange', () => {
 				switch(document.visibilityState) {
 					case 'hidden' : 

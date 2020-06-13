@@ -18,6 +18,7 @@
 	<link rel="canonical" href="http://krishcdbry.heartynote.com"/>
 	<link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/krish.css">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
 </head>
 <body class="class-one">
 <div class="top-border"></div>
@@ -56,23 +57,25 @@
 
 				<span class="letter" id="big3">P</span><span class="letter">a</span><span class="letter">d</span><span class="letter">d</span><span class="letter">a</span>
 			</span>
-			<span class="webname">@krishcdbry | Web Development Lead, Misport</span> <br>
+			<div class="webname">
+				<span> @krishcdbry </span>
+				<span> Associate Director - Engineering, BharatPe </span>	
+				<div class="block info-block">
+					<div class="info info-one"> <span class="count"> 28 </span> <i>Years</i></div>
+					<div class="info info-two"> <span class="count"> 35 </span>+ <i>Projects</i></div>
+					<div class="info info-one"> <span class="count"> 6 </span>+ <i>Exp </i></div>
+					<div class="info info-one"> <span class="count"> 150 </span>+ <i>Repos </i></div>
+					<div class="info info-one"> <span class="count"> 10 </span>+ <i> Technlogies </i></div>
+				</div>		
+			</div>
 		</div>
-		<div class="block info-block">
-			<div class="info info-one"> 27 <i>Years</i></div>
-			<div class="info info-two"> 15+ <i>Projects</i></div>
-			<div class="info info-one"> 5+ <i>Exp </i></div>
-			<div class="info info-one"> 100+ <i>Repos </i></div>
-			<div class="info info-one"> 10+ <i> Npm's </i></div>
-		</div>
-
-		<div class="contact">
-			<a href="https://linkedin.com/in/krishcdbry" class="link"><i class="fa fa-linkedin"></i></a>
-			<a href="https://twitter.com/krishcdbry" class="link"><i class="fa fa-twitter"></i></a>
-			<a href="https://facebook.com/krishcdbry" class="link"><i class="fa fa-facebook"></i></a>
-			<a href="https://github.com/krishcdbry" class="link"><i class="fa fa-github"></i></a>
-			<a href="https://stackoverflow.com/users/3800824/krishcdbry" class="link"><i class="fa fa-stack-overflow"></i></a>
-		</div>
+	</div>
+	<div class="contact">
+		<a href="https://linkedin.com/in/krishcdbry" class="link"><i class="fa fa-linkedin"></i></a>
+		<a href="https://twitter.com/krishcdbry" class="link"><i class="fa fa-twitter"></i></a>
+		<a href="https://facebook.com/krishcdbry" class="link"><i class="fa fa-facebook"></i></a>
+		<a href="https://github.com/krishcdbry" class="link"><i class="fa fa-github"></i></a>
+		<a href="https://stackoverflow.com/users/3800824/krishcdbry" class="link"><i class="fa fa-stack-overflow"></i></a>
 	</div>
 </div>
 
@@ -188,6 +191,16 @@
 	$('document').ready(function() {
 		$(window).load(function() {
 			$('#overlay').fadeOut('slow');
+			$('.count').each(function () {
+				const $this = $(this);
+				jQuery({ Counter: 0 }).animate({ Counter: $this.text() }, {
+					duration: 5000,
+					easing: 'swing',
+					step: function () {
+						$this.text(Math.ceil(this.Counter));
+					}
+				});
+			});
 		});
 	});
 
