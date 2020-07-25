@@ -1,4 +1,4 @@
-krishcdbry
+KrishCdbry
 ==========
 I am a Geeky Web Ninja,
 Self-taught, highly-motivated developer with a focus on web technologies. I am more passionate about developing quality products, solve interesting problems & learning new technologies. 🦹🏼
