@@ -17,7 +17,7 @@ In Love with ES6.
 🕶 Quantum Theory (Computing - Qbits)
 
 ```json
-var krishCdbry = {
+const krishCdbry = {
   "title" : "Geeky Web Ninja",
   "self-taught" : true,
   "motivated" : true,
