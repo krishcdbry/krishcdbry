@@ -51,6 +51,8 @@ body {
 	font-size: 12px;
 	line-height: 1.6;
 	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
 	background-color: #c15151;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -224,7 +226,7 @@ span.hi {
 	-o-animation: social 2s 1;
 	animation: social 2s 1;
 	width: 100vw;
-	margin-bottom: 75px;
+	padding-bottom: 89px;
 }
 
 .contact a {
@@ -1429,3 +1431,16 @@ a.theme-thumb:hover {
 }
 }
 
+body::-webkit-scrollbar {
+	width: 1px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+	background: transparent;        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+	background-color: #ddd;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 2px solid #bbb;  /* creates padding around scroll thumb */
+  }
