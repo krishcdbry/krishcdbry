@@ -881,6 +881,15 @@ body:hover .cursor {
     border-color: var(--color-cyan);
 }
 
+.contact-link-topmate {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(236, 72, 153, 0.1));
+    border-color: var(--color-purple);
+}
+
+.contact-link-topmate:hover {
+    border-color: var(--color-pink);
+}
+
 .link-icon {
     font-size: 2rem;
 }
