@@ -454,14 +454,53 @@ body:hover .cursor {
     font-size: 1rem;
     line-height: 1.7;
     color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.view-more-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-cyan);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out-expo);
+    font-family: var(--font-display);
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-more-btn:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--color-cyan);
+    transform: translateY(-2px);
+}
+
+.work-card.expanded .view-more-btn {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--color-cyan);
 }
 
 .card-story {
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 0.95rem;
     line-height: 1.7;
+    transition: all 0.5s var(--ease-out-expo);
+}
+
+.work-card.expanded .card-story {
+    max-height: 3000px;
+    opacity: 1;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .card-story p {
@@ -1157,8 +1196,16 @@ body:hover .cursor {
         margin-bottom: 1.5rem;
     }
 
+    .view-more-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+    }
+
     .card-story {
         font-size: 0.9rem;
+    }
+
+    .work-card.expanded .card-story {
         margin-top: 1rem;
     }
 

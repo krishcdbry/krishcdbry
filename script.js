@@ -210,6 +210,23 @@ window.addEventListener('scroll', () => {
     scrollProgress.style.width = scrolled + '%';
 });
 
+// ==================== WORK CARD EXPAND/COLLAPSE ====================
+document.querySelectorAll('.view-more-btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const workCard = this.closest('.work-card');
+        const isExpanded = workCard.classList.contains('expanded');
+
+        if (isExpanded) {
+            workCard.classList.remove('expanded');
+            this.textContent = 'View More ↓';
+        } else {
+            workCard.classList.add('expanded');
+            this.textContent = 'View Less ↑';
+        }
+    });
+});
+
 // ==================== CONSOLE MESSAGE ====================
 if (typeof console !== 'undefined' && console.log) {
     console.log('%cKrish.', 'font-size: 48px; font-weight: 700; color: #00ff88; font-family: monospace;');
