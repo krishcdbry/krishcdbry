@@ -1216,7 +1216,7 @@ body:hover .cursor {
         flex-direction: column;
         align-items: flex-start;
         gap: 2rem;
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
     }
 
     .intro-text p {
@@ -1239,12 +1239,7 @@ body:hover .cursor {
     }
 
     .hero-scroll {
-        bottom: 1.5rem;
-        font-size: 0.7rem;
-    }
-
-    .scroll-line {
-        height: 40px;
+        display: none;
     }
 
     .marquee-wrapper {
