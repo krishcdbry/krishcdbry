@@ -454,7 +454,45 @@ body:hover .cursor {
     font-size: 1rem;
     line-height: 1.7;
     color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.card-story {
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.card-story p {
+    margin-bottom: 1rem;
+    color: var(--color-text-muted);
+}
+
+.card-story strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.story-list {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+}
+
+.story-list li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.story-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
 }
 
 .card-metrics {
@@ -889,6 +927,16 @@ body:hover .cursor {
         font-size: 0.7rem;
         padding: 0.4rem 0.8rem;
         margin-bottom: 1.5rem;
+    }
+
+    .card-story {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .story-list li {
+        font-size: 0.9rem;
+        padding: 0.4rem 0 0.4rem 1.2rem;
     }
 
     .about-text {
