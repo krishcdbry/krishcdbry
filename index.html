@@ -1,176 +1,774 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mohana Krishna Padda</title>
-    <meta content='krishcdbry' name='Mohana Krishna Padda'/>
-	<meta name="description" content="A Geeky Web Ninja — Eating Javascript, Breathing Code, Dreaming Optimization, Building Crazy Stuff, Always up for new Challenges."/>
-	<meta name='keywords' content='krishcdbry, krish, cdbry, mohana, mohana krishna, krish, heartynote, imprso, haifriend'/>
-	<meta content='english' name='language'/>
-	<meta content='krishcdbry' name='author'/>
-	<meta content='krishcdbry@2020' name='copyright'/>
-	<meta content='krishcdbry@gmail.com' name='Email'/>
-	<meta charset='UTF-8'/>
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.65">
-	<link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="static-stuff/css/main.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mohana Krishna Padda - Head of Engineering | 15 Years | 2 Unicorns | Builder, Coder, Dreamer, Doer">
+    <meta name="author" content="Mohana Krishna Padda">
+    <meta name="keywords" content="Engineering Leader, Tech Founder, CTO, Full Stack Developer, AI, Fintech, BharatPe, Blinkit, Jivi AI">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krishcdbry.github.io/krishcdbry/">
+    <meta property="og:title" content="Mohana Krishna Padda - Engineering Leader & Tech Founder">
+    <meta property="og:description" content="Head of Engineering | 15 Years | 2 Unicorns | Building the future, one line at a time">
+    <meta property="og:image" content="https://krishcdbry.github.io/krishcdbry/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://krishcdbry.github.io/krishcdbry/">
+    <meta property="twitter:title" content="Mohana Krishna Padda - Engineering Leader & Tech Founder">
+    <meta property="twitter:description" content="Head of Engineering | 15 Years | 2 Unicorns | Building the future, one line at a time">
+    <meta property="twitter:image" content="https://krishcdbry.github.io/krishcdbry/og-image.jpg">
+    <meta name="twitter:creator" content="@krishcdbry">
+
+    <title>Mohana Krishna Padda - Engineering Leader & Tech Founder</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/4358385?s=400&u=a7bd9dbf1210dfda26479df4a88803a162fb5c70&v=4">
+    <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/4358385?s=400&u=a7bd9dbf1210dfda26479df4a88803a162fb5c70&v=4">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="pageReady()">
-<div class="home">
-	<div class="intro">
-		<video preload="auto" autoplay loop poster="static-stuff/images/bg.jpeg" id="bgvid" muted>
-			<source src="static-stuff/videos/main-video.webm" type="video/webm">
-			<source src="static-stuff/videos/main-video.webm" type="video/mp4">
-		</video>
-		<audio autoplay loop id="bgAudio">
-			<source src="static-stuff/videos/waves.mp3" type="audio/mpeg">
-		</audio>
-		<div id="wrapper">
-		</div>
-		<div id="main-body">
-			<div class="main-content">
-				<span>
-					Welcome..!
-				</span>
-				<div class="quote">
-					<br>
-					<sup><span class="fa fa-quote-left"></span></sup>
-					The MAN standing STRONG can turn the TIDE
-					<sup><span class="fa fa-quote-right"></span></sup>
-				</div>
-			</div>
-			<br/><br/>
-			<div class="click-me">
-				<a href="krish">
-					<span class="click-me-button">
-						<i class="fa fa-chevron-right"></i>
-					</span>
-				</a>
-			</div>
-		</div>
-	</div>
-    <div class="load-wrapper" id="load-wrapper"></div>
-	<div class="loader">
-		<div class="item">
-			const x = { value : 9 };
-		</div>
-		<div class="item">
-			const y = {};
-		</div>
-		<div class="item">
-			y.__proto__ = x;
-		</div>
-		<div class="item">
-			y.value; // 9
-		</div>
-		<div class="item">
-			y.__proto__.__proto__; // Object
-		</div>
-		<div class="item">
-				x.__proto__.__proto__; // null
-		</div>
-		<div class="item">
-			let z = function (args) {}
-		</div>
-		<div class="item">
-			Object.prototype.toString.call(z); // [object Function];
-		</div>
-	</div>
-	<script>
-		let loader;
-		let loadWrapper;
-		let jsAnimation;
-		let backgroundAudio;
-		
-		class JSAnimation {
-		
-			constructor (elem, wrapperElem) {
-				this.elem = elem;
-				this.wrapperElem = wrapperElem;
-			}
-		
-			fadeOut () {
-				let opacity = 1;
-				const interval = setInterval(() => {
-					if (opacity <= 0.1) {
-						clearInterval(interval);
-						this.elem.style.opacity = 0;
-						this.elem.style['z-index'] = -1;
-						this.wrapperElem.style.display = 'none';
-					}
-					this.elem.style.opacity = opacity;
-					this.elem.style.filter = `alpha(opacity=${opacity*100})`;
-					opacity = opacity-opacity*0.1;
-				}, 50);
-			};
-		
-			fadeIn () {
-				let opacity = 0.1;
-				this.elem.style.opacity = opacity;
-				this.elem.style.display = 'block';
-				const interval = setInterval(() => {
-					if (opacity > 0.9) {
-						this.elem.style.opacity = 1;
-						clearInterval(interval);
-					}
-					this.elem.style.opacity = opacity;
-					this.elem.style.filter = `alpha(opacity: ${opacity*100})`;
-					opacity = opacity+opacity*0.1;
-				}, 50);
-			};
-		}
-		
-		const pageReady = () => {
-			loader = document.getElementsByClassName('loader')[0];
-			loadWrapper = document.getElementById('load-wrapper');
-			setTimeout(() => {
-				clearInterval(posInterval);
-				attachEvents();
-				jsAnimation = new JSAnimation(loader, loadWrapper);
-				jsAnimation.fadeOut();
-				backgroundAudio = document.getElementById("bgAudio");
-				backgroundAudio.volume = 0.3;
-				backgroundAudio.play();
-			}, 9000);
-		};
-		
-		const items = document.getElementsByClassName('item');
-		const Hmax = window.innerHeight-200;
-		const Lmax = window.innerWidth-200;
-		
-		const setPositions = () => {
-			for (let i = 0; i < items.length; i++) {
-				items[i].style.marginTop = `${Math.floor(Math.random() * (Hmax - 10 + 1) + 10).toString()}px`;
-				items[i].style.marginLeft = `${Math.floor(Math.random() * (Lmax - 10 + 1) + 10).toString()}px`;
-			}
-		};
-		
-		setPositions();
-		
-		let posInterval = setInterval(() => {
-			setPositions();
-		}, 18000);
-		
-		let attachEvents = () => {
-			window.addEventListener('visibilitychange', () => {
-				switch(document.visibilityState) {
-					case 'hidden' : 
-						backgroundAudio.muted = true;
-						break;
-					default : 
-						backgroundAudio.muted = false;
-						break;	
-				}
-			});
-		}
+<body>
+    <!-- Cursor -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
 
-	</script>
-	</div>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-logo" aria-label="Mohana Krishna Padda">Krish.</div>
+        <div class="nav-menu">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-contact">
+            <a href="mailto:krishcdbry@gmail.com" class="nav-email" aria-label="Send email to Mohana Krishna Padda">Say Hi</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Introduction">
+        <!-- Animated Background -->
+        <div class="hero-bg" aria-hidden="true">
+            <div class="bg-grid"></div>
+            <div class="bg-gradient"></div>
+            <div class="bg-dots"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                Available for Advisory
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Building the</span>
+                <span class="title-line title-highlight">Future,</span>
+                <span class="title-line">One Line at a Time</span>
+            </h1>
+            <div class="hero-intro">
+                <div class="intro-text">
+                    <p>Mohana Krishna Padda</p>
+                    <p class="intro-role">Head of Engineering @ Jivi AI</p>
+                </div>
+                <div class="intro-stats">
+                    <div class="stat">
+                        <span class="stat-value">15</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">2</span>
+                        <span class="stat-label">Unicorns</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">100+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">23K</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll to explore</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Row Marquee -->
+    <div class="marquee-wrapper" role="region" aria-label="Tech arsenal and achievements">
+        <!-- Row 1: Scrolls Right -->
+        <div class="marquee-row marquee-row-1">
+            <div class="marquee-track">
+                <span class="marquee-item marquee-achievement">🏆 National Hacking Champion</span>
+                <span class="marquee-item">Java</span>
+                <span class="marquee-item">Spring Boot</span>
+                <span class="marquee-item marquee-achievement">💰 $12.8B+ Unicorns</span>
+                <span class="marquee-item">Node.js</span>
+                <span class="marquee-item">React</span>
+                <span class="marquee-item">TypeScript</span>
+                <span class="marquee-item marquee-achievement">⚡ $10M in 3 Weeks</span>
+                <span class="marquee-item">Python</span>
+                <span class="marquee-item">FastAPI</span>
+                <span class="marquee-item">AWS</span>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+                <span class="marquee-item marquee-achievement">🏆 National Hacking Champion</span>
+                <span class="marquee-item">Java</span>
+                <span class="marquee-item">Spring Boot</span>
+                <span class="marquee-item marquee-achievement">💰 $12.8B+ Unicorns</span>
+                <span class="marquee-item">Node.js</span>
+                <span class="marquee-item">React</span>
+                <span class="marquee-item">TypeScript</span>
+                <span class="marquee-item marquee-achievement">⚡ $10M in 3 Weeks</span>
+                <span class="marquee-item">Python</span>
+                <span class="marquee-item">FastAPI</span>
+                <span class="marquee-item">AWS</span>
+            </div>
+        </div>
+
+        <!-- Row 2: Scrolls Left (opposite direction) -->
+        <div class="marquee-row marquee-row-2">
+            <div class="marquee-track">
+                <span class="marquee-item">Docker</span>
+                <span class="marquee-item">Kubernetes</span>
+                <span class="marquee-item marquee-achievement">🚀 5 Startups Founded</span>
+                <span class="marquee-item">PostgreSQL</span>
+                <span class="marquee-item">MongoDB</span>
+                <span class="marquee-item">Redis</span>
+                <span class="marquee-item marquee-achievement">⭐ Top 1% Topmate</span>
+                <span class="marquee-item">OpenAI</span>
+                <span class="marquee-item">LangChain</span>
+                <span class="marquee-item">Pinecone</span>
+                <span class="marquee-item">AI Agents</span>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+                <span class="marquee-item">Docker</span>
+                <span class="marquee-item">Kubernetes</span>
+                <span class="marquee-item marquee-achievement">🚀 5 Startups Founded</span>
+                <span class="marquee-item">PostgreSQL</span>
+                <span class="marquee-item">MongoDB</span>
+                <span class="marquee-item">Redis</span>
+                <span class="marquee-item marquee-achievement">⭐ Top 1% Topmate</span>
+                <span class="marquee-item">OpenAI</span>
+                <span class="marquee-item">LangChain</span>
+                <span class="marquee-item">Pinecone</span>
+                <span class="marquee-item">AI Agents</span>
+            </div>
+        </div>
+
+        <!-- Row 3: Scrolls Right -->
+        <div class="marquee-row marquee-row-3">
+            <div class="marquee-track">
+                <span class="marquee-item">GraphQL</span>
+                <span class="marquee-item">Microservices</span>
+                <span class="marquee-item marquee-achievement">🎯 15 Years Experience</span>
+                <span class="marquee-item">Terraform</span>
+                <span class="marquee-item">Kafka</span>
+                <span class="marquee-item">ElasticSearch</span>
+                <span class="marquee-item marquee-achievement">💡 GrowJs Community</span>
+                <span class="marquee-item">React Native</span>
+                <span class="marquee-item">Next.js</span>
+                <span class="marquee-item">Serverless</span>
+                <span class="marquee-item">CI/CD</span>
+            </div>
+            <div class="marquee-track" aria-hidden="true">
+                <span class="marquee-item">GraphQL</span>
+                <span class="marquee-item">Microservices</span>
+                <span class="marquee-item marquee-achievement">🎯 15 Years Experience</span>
+                <span class="marquee-item">Terraform</span>
+                <span class="marquee-item">Kafka</span>
+                <span class="marquee-item">ElasticSearch</span>
+                <span class="marquee-item marquee-achievement">💡 GrowJs Community</span>
+                <span class="marquee-item">React Native</span>
+                <span class="marquee-item">Next.js</span>
+                <span class="marquee-item">Serverless</span>
+                <span class="marquee-item">CI/CD</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 class="about-title">Alpha Ninja 🥷</h2>
+                <p class="about-subtitle">Builder. Coder. Dreamer. Doer.</p>
+                <div class="about-text">
+                    <p class="lead">I'm a passionate, unconventional tech leader who thrives on building bold ideas and leading from the front. I proudly embrace my inner geek and love being the odd one out, the one who dreams big and delivers even bigger.</p>
+
+                    <h3 class="about-section-heading">🚀 Future Goals</h3>
+                    <p>I don't just think outside the box, I'm not even on the same planet. I want to die on Mars. I'm obsessed with space tech, brain-chip cloning, and anything that sounds a little too crazy to be real, because that's where the real magic happens.</p>
+
+                    <h3 class="about-section-heading">🧠 Career Highlights</h3>
+                    <ul class="career-highlights">
+                        <li>Co-founded a startup and got a term sheet in just 1 month, later returned it by choice after re-evaluating priorities</li>
+                        <li>Spent 4 years at BharatPe ($2.8B fintech, Unicorn) – built teams, shipped products, scaled culture</li>
+                        <li>Led engineering at Blinkit (formerly Grofers, $10B, Unicorn) – contributed significantly to growth and stability</li>
+                        <li>Founded the GrowJs Community – a space for devs who love to build and learn</li>
+                        <li>Managed 5 high-priority projects in parallel and delivered all before deadline while boosting team productivity</li>
+                        <li>Built multiple MVPs solo – fast, functional, and battle-tested</li>
+                    </ul>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight">
+                        <span class="highlight-icon">🏆</span>
+                        <span>National Ethical Hacking Champion 2013</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon">⭐</span>
+                        <span>Top 1% on Topmate</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon">🚀</span>
+                        <span>Founder of Heartynote, Haifriend, BookOn, OneBharat, GrowJs</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon">💰</span>
+                        <span>$12.8B+ Combined Valuation (BharatPe + Blinkit)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-tech">
+                <h3>Tech Arsenal</h3>
+                <div class="tech-section">
+                    <h4 class="tech-category">Backend & API</h4>
+                    <div class="tech-tags">
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>Fastify</span>
+                        <span>NestJS</span>
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Flask</span>
+                        <span>REST APIs</span>
+                        <span>GraphQL</span>
+                        <span>gRPC</span>
+                        <span>WebSockets</span>
+                        <span>Microservices</span>
+                        <span>Serverless</span>
+                    </div>
+                </div>
+                <div class="tech-section">
+                    <h4 class="tech-category">Frontend & Mobile</h4>
+                    <div class="tech-tags">
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>Redux</span>
+                        <span>TypeScript</span>
+                        <span>React Native</span>
+                        <span>JavaScript</span>
+                        <span>TailwindCSS</span>
+                        <span>Webpack</span>
+                        <span>Vite</span>
+                        <span>Electron</span>
+                        <span>PWA</span>
+                    </div>
+                </div>
+                <div class="tech-section">
+                    <h4 class="tech-category">AI & ML</h4>
+                    <div class="tech-tags">
+                        <span>OpenAI API</span>
+                        <span>Gemini API</span>
+                        <span>Claude API</span>
+                        <span>LangChain</span>
+                        <span>LangGraph</span>
+                        <span>Pinecone</span>
+                        <span>Milvus</span>
+                        <span>Weaviate</span>
+                        <span>RAG Pipelines</span>
+                        <span>Embeddings</span>
+                        <span>Fine-Tuning</span>
+                        <span>PyTorch</span>
+                        <span>TensorFlow</span>
+                        <span>AI Agents</span>
+                        <span>Voice AI</span>
+                        <span>Whisper</span>
+                        <span>ElevenLabs</span>
+                    </div>
+                </div>
+                <div class="tech-section">
+                    <h4 class="tech-category">Databases & Data</h4>
+                    <div class="tech-tags">
+                        <span>PostgreSQL</span>
+                        <span>MySQL</span>
+                        <span>MongoDB</span>
+                        <span>DynamoDB</span>
+                        <span>Redis</span>
+                        <span>ElasticSearch</span>
+                        <span>OpenSearch</span>
+                        <span>Kafka</span>
+                        <span>RabbitMQ</span>
+                        <span>Prisma</span>
+                        <span>Sequelize</span>
+                        <span>TypeORM</span>
+                    </div>
+                </div>
+                <div class="tech-section">
+                    <h4 class="tech-category">Cloud & DevOps</h4>
+                    <div class="tech-tags">
+                        <span>AWS Lambda</span>
+                        <span>AWS EC2</span>
+                        <span>AWS S3</span>
+                        <span>GCP</span>
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Nginx</span>
+                        <span>Terraform</span>
+                        <span>CloudFormation</span>
+                        <span>CI/CD</span>
+                        <span>GitHub Actions</span>
+                        <span>Cloudflare</span>
+                        <span>Vercel</span>
+                        <span>Prometheus</span>
+                        <span>Grafana</span>
+                    </div>
+                </div>
+                <div class="tech-section">
+                    <h4 class="tech-category">Fintech & Security</h4>
+                    <div class="tech-tags">
+                        <span>Stripe</span>
+                        <span>Razorpay</span>
+                        <span>Plaid</span>
+                        <span>UPI</span>
+                        <span>OAuth2</span>
+                        <span>JWT</span>
+                        <span>OWASP</span>
+                        <span>SSL/TLS</span>
+                        <span>AES Encryption</span>
+                        <span>Web3.js</span>
+                        <span>Blockchain</span>
+                        <span>Smart Contracts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Grid -->
+    <section id="work" class="work-section">
+        <div class="section-header">
+            <h2 class="section-title">Selected Work</h2>
+            <p class="section-subtitle">Building products that matter at scale</p>
+        </div>
+
+        <div class="work-grid">
+            <!-- Jivi AI - Large Feature -->
+            <article class="work-card work-card-large" data-color="#00d4ff">
+                <div class="card-content">
+                    <div class="card-tag">Current · 2025</div>
+                    <h3>Jivi AI</h3>
+                    <p class="card-role">Head of Engineering | Leading AI Healthcare Revolution</p>
+                    <p class="card-desc">Building the world's most accurate AI Doctor with cutting-edge LLM orchestration and RAG pipelines. Leading full-stack engineering from infrastructure to product.</p>
+
+                    <button class="view-more-btn">View More ↓</button>
+
+                    <div class="card-story">
+                        <p><strong>The Challenge:</strong> Healthcare information is fragmented. People need instant, accurate medical guidance.</p>
+                        <p><strong>What I Built:</strong></p>
+                        <ul class="story-list">
+                            <li><strong>Sigma Health Search Engine</strong> – Built in one weekend. Multi-model AI orchestration (OpenAI, Gemini, Claude) with intelligent query routing and context-aware responses</li>
+                            <li><strong>Longevity Platform</strong> – Launched globally in under 7 days. Real-time health scoring, personalized recommendations, and ML-driven insights</li>
+                            <li><strong>Infrastructure</strong> – Architected scalable AI pipeline on AWS Lambda + PostgreSQL + Redis, handling 10K+ daily queries with sub-200ms latency</li>
+                        </ul>
+                        <p><strong>Tech Stack:</strong> Python, FastAPI, LangChain, OpenAI/Gemini/Claude APIs, Pinecone, PostgreSQL, Redis, AWS Lambda, Docker</p>
+                    </div>
+
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">7 days</span>
+                            <span class="metric-label">Global Launch</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">10K+</span>
+                            <span class="metric-label">Daily Queries</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">3 LLMs</span>
+                            <span class="metric-label">Orchestrated</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- OneBharat -->
+            <article class="work-card" data-color="#7c3aed">
+                <div class="card-content">
+                    <div class="card-tag">Founded · 2024</div>
+                    <h3>OneBharat</h3>
+                    <p class="card-role">Founder & CTO | From Idea to $10M Term Sheet</p>
+                    <p class="card-desc">Built complete fintech infrastructure connecting India's payment ecosystem. Raised term sheet in record time, later returned by choice to pursue bigger vision.</p>
+
+                    <button class="view-more-btn">View More ↓</button>
+
+                    <div class="card-story">
+                        <p><strong>The Speed:</strong> Conceived, built, and raised $10M term sheet in just 3 weeks. Built entire Android & iOS apps in 5 days while traveling in Rishikesh – coding in cafes, testing in the mountains.</p>
+                        <p><strong>What I Built:</strong></p>
+                        <ul class="story-list">
+                            <li>Complete fintech platform integrating UPI, NSDL, GST APIs, and banking aggregators</li>
+                            <li>React Native apps (Android + iOS) with offline-first architecture and biometric authentication</li>
+                            <li>Backend microservices with Node.js + PostgreSQL + Redis, processing real-time transactions</li>
+                            <li>Admin dashboard with React + TypeScript for operations and reconciliation</li>
+                        </ul>
+                        <p><strong>The Decision:</strong> Returned the term sheet after re-evaluating priorities – a hard call that taught me to build for passion, not just capital.</p>
+                    </div>
+
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">$10M</span>
+                            <span class="metric-label">Term Sheet</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">5 days</span>
+                            <span class="metric-label">Both Apps</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">3 weeks</span>
+                            <span class="metric-label">Idea to Funding</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- BharatPe -->
+            <article class="work-card work-card-wide" data-color="#ec4899">
+                <div class="card-content">
+                    <div class="card-tag">Unicorn · $2.8B</div>
+                    <h3>BharatPe</h3>
+                    <p class="card-role">Director of Engineering · 4 Years | Building India's Fintech Infrastructure</p>
+                    <p class="card-desc">Led engineering for multiple product lines at India's fastest-growing fintech unicorn. Built teams, shipped products, scaled culture from 20 to 200+ engineers.</p>
+
+                    <button class="view-more-btn">View More ↓</button>
+
+                    <div class="card-story">
+                        <p><strong>The Impact:</strong> 4 years of building the future of Indian fintech. Led multiple product lines, built high-performance teams, and transformed engineering culture.</p>
+                        <p><strong>Key Products Built:</strong></p>
+                        <ul class="story-list">
+                            <li><strong>BharatSwipe</strong> – India's first zero-commission POS system. Built from 0→1 with React Native + Java Spring Boot. Processed ₹700Cr+ transactions, deployed to 50K+ merchants across India</li>
+                            <li><strong>PostPe</strong> – Digital payment platform for postal network. Architected microservices handling 100K+ daily transactions with 99.9% uptime</li>
+                            <li><strong>Unity</strong> – Internal super-app for merchant operations. Built with React + Node.js, used by 10K+ field agents daily</li>
+                            <li><strong>12% Club (P2P Lending)</strong> – Led engineering for peer-to-peer lending platform. Built risk engine, KYC automation, and loan management system</li>
+                        </ul>
+                        <p><strong>Engineering Transformation:</strong></p>
+                        <ul class="story-list">
+                            <li>Rebuilt CI/CD pipeline – reduced deployment time from 45 min to 3 min (12× faster). Enabled 50+ deployments/day</li>
+                            <li>Scaled team from 20 to 200+ engineers. Built hiring process, onboarding, and engineering culture</li>
+                            <li>Introduced microservices architecture, Kubernetes orchestration, and observability stack (Prometheus + Grafana)</li>
+                            <li>Built DevOps culture – infrastructure as code, automated testing, blue-green deployments</li>
+                        </ul>
+                        <p><strong>Tech Stack:</strong> Java, Spring Boot, Node.js, React, React Native, PostgreSQL, MongoDB, Redis, Kafka, Kubernetes, AWS</p>
+                    </div>
+
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">₹700Cr+</span>
+                            <span class="metric-label">Transactions</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">50K+</span>
+                            <span class="metric-label">Merchants</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">12×</span>
+                            <span class="metric-label">Faster CI/CD</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">200+</span>
+                            <span class="metric-label">Team Size</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blinkit -->
+            <article class="work-card" data-color="#10b981">
+                <div class="card-content">
+                    <div class="card-tag">Unicorn · $10B</div>
+                    <h3>Blinkit (formerly Grofers)</h3>
+                    <p class="card-role">Engineering Manager | Growth & Community</p>
+                    <p class="card-desc">Led Growth Engineering at India's largest quick-commerce platform. Built features driving user acquisition and retention at massive scale.</p>
+
+                    <button class="view-more-btn">View More ↓</button>
+
+                    <div class="card-story">
+                        <p><strong>What I Did:</strong></p>
+                        <ul class="story-list">
+                            <li>Led Growth Engineering team – built referral systems, promotional engines, and A/B testing infrastructure</li>
+                            <li>Architected real-time inventory management system handling 10M+ daily updates across 500+ dark stores</li>
+                            <li>Built notification engine delivering 100M+ daily push notifications with smart segmentation</li>
+                            <li>Optimized app performance – reduced bundle size by 40%, improved cold start time by 60%</li>
+                        </ul>
+                        <p><strong>Community Impact:</strong> Founded <strong>GrowJs Community</strong> – a thriving community of 500+ JavaScript engineers in NCR. Organized monthly meetups, workshops, and knowledge-sharing sessions.</p>
+                        <p><strong>Tech Stack:</strong> React, React Native, Node.js, Python, PostgreSQL, Redis, Kafka, AWS</p>
+                    </div>
+
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">10M+</span>
+                            <span class="metric-label">Daily Updates</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">500+</span>
+                            <span class="metric-label">Dark Stores</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">GrowJs</span>
+                            <span class="metric-label">Community</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Advisory -->
+            <article class="work-card work-card-dark">
+                <div class="card-content">
+                    <div class="card-tag">Advisory · 2020-Present</div>
+                    <h3>5+ Startups as CTO/Advisor</h3>
+                    <p class="card-role">Technical Advisor & Fractional CTO</p>
+                    <p class="card-desc">Helping early-stage startups build products, scale teams, and navigate technical decisions. From MVPs to production-grade systems.</p>
+
+                    <button class="view-more-btn">View More ↓</button>
+
+                    <div class="card-story">
+                        <p><strong>Advisory Portfolio:</strong></p>
+                        <ul class="story-list">
+                            <li><strong>PRAAVI (Banking SaaS)</strong> – Built complete banking dashboard with account aggregation in 45 days. React + Node.js + PostgreSQL. Integrated with 10+ banking APIs for real-time data sync</li>
+                            <li><strong>Stealth AI (Healthcare)</strong> – Architected and built MVP in 1 week. Python FastAPI + OpenAI + Pinecone. Voice-enabled AI assistant for patient care</li>
+                            <li><strong>Yellow (Fintech)</strong> – Led security audits and architecture review. Hardened APIs, implemented rate limiting, fixed OWASP vulnerabilities</li>
+                            <li><strong>OTPless (Auth Platform)</strong> – Advised on scalability and international expansion. Optimized authentication flows for 1M+ daily verifications</li>
+                        </ul>
+                        <p><strong>What I Bring:</strong> 0→1 product strategy, technical architecture, team building, security & compliance, AI/ML integration, rapid prototyping</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Heartynote -->
+            <article class="work-card" data-color="#f59e0b">
+                <div class="card-content">
+                    <div class="card-tag">Founded · 2013 | Age 19</div>
+                    <h3>Heartynote</h3>
+                    <p class="card-role">Founder & CEO | Where It All Began</p>
+                    <p class="card-desc">My first startup at 19 – a memory-driven social network built before Facebook's "On This Day" feature. Complete product suite from scratch.</p>
+
+                    <button class="view-more-btn">View More ↓</button>
+
+                    <div class="card-story">
+                        <p><strong>The Origin Story:</strong> As a 19-year-old college student, I wanted to build something that preserved memories. Built Heartynote – a social network that reminds you of your memories from years ago.</p>
+                        <p><strong>What I Built (Solo):</strong></p>
+                        <ul class="story-list">
+                            <li>Web platform (PHP + MySQL) with photo/video uploads, timeline, and memory notifications</li>
+                            <li>Android app (Java) with offline sync and push notifications</li>
+                            <li>Built recommendation engine to surface relevant old memories</li>
+                            <li>Managed everything – product, design, development, server management, user support</li>
+                        </ul>
+                        <p><strong>The Learning:</strong> This was my crash course in building complete products. Learned full-stack development, infrastructure, user acquisition, and the hard reality of competing with giants. Facebook launched "On This Day" shortly after – a tough lesson in timing and market dynamics.</p>
+                        <p><strong>The Impact:</strong> Gained 10K+ users organically. More importantly, learned to ship fast, iterate, and build for users. This foundation shaped my entire career.</p>
+                    </div>
+
+                    <div class="card-metrics">
+                        <div class="metric">
+                            <span class="metric-value">Age 19</span>
+                            <span class="metric-label">First Startup</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">10K+</span>
+                            <span class="metric-label">Users</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Solo Built</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="certifications-section">
+        <div class="certifications-container">
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-subtitle">Continuous learning across cloud, AI, and data science</p>
+
+            <div class="certs-grid">
+                <article class="cert-card">
+                    <div class="cert-badge">
+                        <span class="cert-icon">☁️</span>
+                    </div>
+                    <h3 class="cert-title">AWS Cloud Practitioner</h3>
+                    <p class="cert-issuer">Amazon Web Services</p>
+                    <p class="cert-desc">Foundational certification showcasing strong understanding of AWS cloud architecture, deployment models, and core services. Demonstrates ability to design scalable, cost-efficient, and secure systems.</p>
+                    <div class="cert-skills">
+                        <span>AWS</span>
+                        <span>Cloud Architecture</span>
+                        <span>Serverless</span>
+                        <span>Security</span>
+                        <span>Scalability</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <div class="cert-badge">
+                        <span class="cert-icon">🤖</span>
+                    </div>
+                    <h3 class="cert-title">Introduction to AI</h3>
+                    <p class="cert-issuer">IBM</p>
+                    <p class="cert-desc">Certification covering AI fundamentals, including neural networks, deep learning, and intelligent automation. Builds comprehensive understanding of how AI systems learn, reason, and adapt to data.</p>
+                    <div class="cert-skills">
+                        <span>Artificial Intelligence</span>
+                        <span>Neural Networks</span>
+                        <span>Deep Learning</span>
+                        <span>Machine Learning</span>
+                    </div>
+                </article>
+
+                <article class="cert-card">
+                    <div class="cert-badge">
+                        <span class="cert-icon">🐍</span>
+                    </div>
+                    <h3 class="cert-title">Python for Applied Data Science</h3>
+                    <p class="cert-issuer">IBM</p>
+                    <p class="cert-desc">Focuses on leveraging Python for practical data science and analytics. Emphasizes data handling with Pandas and NumPy, visualization with Matplotlib, and machine learning with Scikit-learn.</p>
+                    <div class="cert-skills">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Scikit-learn</span>
+                        <span>ML Pipelines</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-container">
+            <h2 class="section-title">What People Say</h2>
+            <p class="section-subtitle">From teammates, mentees, and the community</p>
+
+            <div class="testimonials-grid">
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"Krish is an outstanding leader, mentor, and friend with exceptional technical depth and emotional intelligence. He inspires teams, drives innovation, and builds a culture of collaboration while staying deeply hands-on with technology."</div>
+                    <div class="testimonial-author">
+                        <strong>Pavan Kumar</strong>
+                        <span>Engineering Leader</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"Krish is a true hero in tech — a multi-talented engineer who can handle frontend, backend, and infrastructure effortlessly. His calm nature, integrity, and sense of humor make him a reliable and inspiring leader."</div>
+                    <div class="testimonial-author">
+                        <strong>Srihari</strong>
+                        <span>Senior Engineer</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card testimonial-card-topmate">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">"It was great talking to Krish. He taught me a completely new perspective of seeing things. I was earlier worried about my career and goals. Remember, it's all about the mindset and courage to take the risk!"</div>
+                    <div class="testimonial-author">
+                        <strong>Kumar Abhinav Jha</strong>
+                        <span>Mentee · Topmate</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"Krish is a self-driven technologist and an inspiring mentor whose passion and consistency stand out. His leadership blends technical depth with empathy, making him a driving force in any organization."</div>
+                    <div class="testimonial-author">
+                        <strong>Chandu Ivaturi</strong>
+                        <span>Tech Lead</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card testimonial-card-topmate">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">"The insights shared were really good. Krish is very helpful and patiently answered all my doubts. He gave me a clear roadmap and helped me make informed decisions."</div>
+                    <div class="testimonial-author">
+                        <strong>Aditya Dhopade</strong>
+                        <span>Mentee · Topmate</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"Krish is the most passionate learner and one of the most talented minds in technology. His hunger for knowledge, innovation, and continuous improvement is unmatched."</div>
+                    <div class="testimonial-author">
+                        <strong>Sai Vijay</strong>
+                        <span>Software Engineer</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card testimonial-card-topmate">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">"Krish went above and beyond to address all of my doubts and engage in insightful discussions about various tech topics. His knowledge and professionalism made my experience truly valuable."</div>
+                    <div class="testimonial-author">
+                        <strong>Vignesh Kopparapu</strong>
+                        <span>Mentee · Topmate</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card">
+                    <div class="testimonial-quote">"Krish is a powerhouse of technology — passionate, innovative, and unstoppable. His energy, hacker mindset, and willingness to help others define him as a truly inspiring tech leader."</div>
+                    <div class="testimonial-author">
+                        <strong>Srinivas</strong>
+                        <span>Engineering Manager</span>
+                    </div>
+                </article>
+
+                <article class="testimonial-card testimonial-card-topmate">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <div class="testimonial-quote">"He gave me clear insights about how to crack interviews and a 3–5 year roadmap on how to proceed in my career. It was extremely helpful and constructive."</div>
+                    <div class="testimonial-author">
+                        <strong>Sudhanshu Ranjan</strong>
+                        <span>Mentee · Topmate</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="contact-title">Let's build something incredible</h2>
+            <p class="contact-subtitle">Open to discussing ambitious projects, technical challenges, or opportunities to architect the future.</p>
+            <div class="contact-links">
+                <a href="mailto:krishcdbry@gmail.com" class="contact-link contact-link-primary">
+                    <span class="link-icon">✉</span>
+                    <span class="link-text">krishcdbry@gmail.com</span>
+                </a>
+                <a href="https://topmate.io/krishcdbry" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-topmate" aria-label="Book a session with Mohana Krishna Padda on Topmate">
+                    <span class="link-text">Book a Mentorship Session</span>
+                    <span class="link-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://linkedin.com/in/krishcdbry" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit Mohana Krishna Padda's LinkedIn profile">
+                    <span class="link-text">LinkedIn</span>
+                    <span class="link-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://github.com/krishcdbry" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit Mohana Krishna Padda's GitHub profile">
+                    <span class="link-text">GitHub</span>
+                    <span class="link-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="https://twitter.com/krishcdbry" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit Mohana Krishna Padda's Twitter profile">
+                    <span class="link-text">Twitter</span>
+                    <span class="link-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
+            <div class="contact-footer">
+                <p>© 2025 Mohana Krishna Padda</p>
+                <p class="footer-quote">"I'm not even on the same planet"</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
-
-
 </html>
