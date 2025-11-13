@@ -719,3 +719,50 @@ body:hover .cursor {
     background: var(--color-accent);
     color: var(--color-bg);
 }
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .cursor,
+    .cursor-follower {
+        display: none !important;
+    }
+
+    body {
+        cursor: auto !important;
+    }
+}
+
+/* ==================== FOCUS STYLES ==================== */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+.work-card,
+.cursor,
+.cursor-follower,
+.hero-title {
+    will-change: transform;
+}
+
+@media (hover: none) {
+    .cursor,
+    .cursor-follower {
+        display: none;
+    }
+
+    body {
+        cursor: auto;
+    }
+}

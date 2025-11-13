@@ -1,59 +1,83 @@
+// ==================== CONSTANTS ====================
+const ANIMATION_CONFIG = {
+    CURSOR_SPEED: 0.3,
+    FOLLOWER_SPEED: 0.1,
+    CURSOR_SCALE: 2,
+    FOLLOWER_SCALE: 1.5,
+    CARD_STAGGER_DELAY: 0.1,
+    TAG_STAGGER_DELAY: 50,
+    PARALLAX_SPEED: 0.3,
+    PARALLAX_FADE_DISTANCE: 500,
+    MAGNETIC_STRENGTH: 0.3
+};
+
+const BREAKPOINTS = {
+    MOBILE: 768
+};
+
+// ==================== REDUCED MOTION CHECK ====================
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ==================== CUSTOM CURSOR ====================
 const cursor = document.querySelector('.cursor');
 const cursorFollower = document.querySelector('.cursor-follower');
 
-let mouseX = 0;
-let mouseY = 0;
-let cursorX = 0;
-let cursorY = 0;
-let followerX = 0;
-let followerY = 0;
+if (cursor && cursorFollower && !prefersReducedMotion) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    let followerX = 0;
+    let followerY = 0;
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-});
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-function animateCursor() {
-    // Smooth follow for cursor
-    let distX = mouseX - cursorX;
-    let distY = mouseY - cursorY;
+    function animateCursor() {
+        // Smooth follow for cursor
+        const distX = mouseX - cursorX;
+        const distY = mouseY - cursorY;
 
-    cursorX = cursorX + distX * 0.3;
-    cursorY = cursorY + distY * 0.3;
+        cursorX = cursorX + distX * ANIMATION_CONFIG.CURSOR_SPEED;
+        cursorY = cursorY + distY * ANIMATION_CONFIG.CURSOR_SPEED;
 
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
 
-    // Slower follow for follower
-    let followerDistX = mouseX - followerX;
-    let followerDistY = mouseY - followerY;
+        // Slower follow for follower
+        const followerDistX = mouseX - followerX;
+        const followerDistY = mouseY - followerY;
 
-    followerX = followerX + followerDistX * 0.1;
-    followerY = followerY + followerDistY * 0.1;
+        followerX = followerX + followerDistX * ANIMATION_CONFIG.FOLLOWER_SPEED;
+        followerY = followerY + followerDistY * ANIMATION_CONFIG.FOLLOWER_SPEED;
 
-    cursorFollower.style.left = followerX + 'px';
-    cursorFollower.style.top = followerY + 'px';
+        cursorFollower.style.left = followerX + 'px';
+        cursorFollower.style.top = followerY + 'px';
 
-    requestAnimationFrame(animateCursor);
+        requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
 }
 
-animateCursor();
-
 // Cursor interactions
-const interactiveElements = document.querySelectorAll('a, button, .work-card');
+if (cursor && cursorFollower && !prefersReducedMotion) {
+    const interactiveElements = document.querySelectorAll('a, button, .work-card');
 
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(2)';
-        cursorFollower.style.transform = 'scale(1.5)';
-    });
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = `scale(${ANIMATION_CONFIG.CURSOR_SCALE})`;
+            cursorFollower.style.transform = `scale(${ANIMATION_CONFIG.FOLLOWER_SCALE})`;
+        });
 
-    el.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'scale(1)';
-        cursorFollower.style.transform = 'scale(1)';
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'scale(1)';
+            cursorFollower.style.transform = 'scale(1)';
+        });
     });
-});
+}
 
 // ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -70,27 +94,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==================== SCROLL ANIMATIONS ====================
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -100px 0px'
-};
+if (!prefersReducedMotion) {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe work cards
+    document.querySelectorAll('.work-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = `all 0.8s cubic-bezier(0.19, 1, 0.22, 1) ${index * ANIMATION_CONFIG.CARD_STAGGER_DELAY}s`;
+        observer.observe(card);
     });
-}, observerOptions);
-
-// Observe work cards
-document.querySelectorAll('.work-card').forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(50px)';
-    card.style.transition = `all 0.8s cubic-bezier(0.19, 1, 0.22, 1) ${index * 0.1}s`;
-    observer.observe(card);
-});
+}
 
 // ==================== WORK CARD HOVER EFFECTS ====================
 document.querySelectorAll('.work-card').forEach(card => {
@@ -107,56 +133,62 @@ document.querySelectorAll('.work-card').forEach(card => {
 });
 
 // ==================== PARALLAX SCROLL ====================
-let ticking = false;
+if (!prefersReducedMotion) {
+    let ticking = false;
 
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            const scrolled = window.pageYOffset;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
 
-            // Parallax for hero elements
-            const heroTitle = document.querySelector('.hero-title');
-            if (heroTitle) {
-                heroTitle.style.transform = `translateY(${scrolled * 0.3}px)`;
-                heroTitle.style.opacity = 1 - (scrolled / 500);
-            }
+                // Parallax for hero elements
+                const heroTitle = document.querySelector('.hero-title');
+                if (heroTitle) {
+                    heroTitle.style.transform = `translateY(${scrolled * ANIMATION_CONFIG.PARALLAX_SPEED}px)`;
+                    heroTitle.style.opacity = 1 - (scrolled / ANIMATION_CONFIG.PARALLAX_FADE_DISTANCE);
+                }
 
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
 
 // ==================== TECH TAGS SHUFFLE ====================
-const techTags = document.querySelectorAll('.tech-tags span');
-techTags.forEach((tag, index) => {
-    tag.style.animationDelay = `${index * 0.05}s`;
-    tag.style.opacity = '0';
-    tag.style.transform = 'translateY(20px)';
+if (!prefersReducedMotion) {
+    const techTags = document.querySelectorAll('.tech-tags span');
+    techTags.forEach((tag, index) => {
+        tag.style.animationDelay = `${index * 0.05}s`;
+        tag.style.opacity = '0';
+        tag.style.transform = 'translateY(20px)';
 
-    setTimeout(() => {
-        tag.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
-        tag.style.opacity = '1';
-        tag.style.transform = 'translateY(0)';
-    }, index * 50);
-});
+        setTimeout(() => {
+            tag.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
+            tag.style.opacity = '1';
+            tag.style.transform = 'translateY(0)';
+        }, index * ANIMATION_CONFIG.TAG_STAGGER_DELAY);
+    });
+}
 
 // ==================== MAGNETIC BUTTONS ====================
-const magneticElements = document.querySelectorAll('.nav-email, .contact-link-primary');
+if (!prefersReducedMotion) {
+    const magneticElements = document.querySelectorAll('.nav-email, .contact-link-primary');
 
-magneticElements.forEach(el => {
-    el.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
 
-        this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            this.style.transform = `translate(${x * ANIMATION_CONFIG.MAGNETIC_STRENGTH}px, ${y * ANIMATION_CONFIG.MAGNETIC_STRENGTH}px)`;
+        });
+
+        el.addEventListener('mouseleave', function() {
+            this.style.transform = 'translate(0, 0)';
+        });
     });
-
-    el.addEventListener('mouseleave', function() {
-        this.style.transform = 'translate(0, 0)';
-    });
-});
+}
 
 // ==================== SCROLL PROGRESS ====================
 const scrollProgress = document.createElement('div');
@@ -179,14 +211,16 @@ window.addEventListener('scroll', () => {
 });
 
 // ==================== CONSOLE MESSAGE ====================
-console.log('%cMKP.', 'font-size: 48px; font-weight: 700; color: #00ff88; font-family: monospace;');
-console.log('%cBuilding the future, one line at a time.', 'font-size: 16px; color: #888; font-family: sans-serif;');
-console.log('%c\nInterested in the code? Let\'s talk.', 'font-size: 14px; color: #00d4ff;');
+if (typeof console !== 'undefined' && console.log) {
+    console.log('%cMKP.', 'font-size: 48px; font-weight: 700; color: #00ff88; font-family: monospace;');
+    console.log('%cBuilding the future, one line at a time.', 'font-size: 16px; color: #888; font-family: sans-serif;');
+    console.log('%c\nInterested in the code? Let\'s talk.', 'font-size: 14px; color: #00d4ff;');
+}
 
 // ==================== PERFORMANCE OPTIMIZATION ====================
 // Disable cursor on mobile
-if (window.innerWidth < 768) {
-    cursor.style.display = 'none';
-    cursorFollower.style.display = 'none';
+if (window.innerWidth < BREAKPOINTS.MOBILE) {
+    if (cursor) cursor.style.display = 'none';
+    if (cursorFollower) cursorFollower.style.display = 'none';
     document.body.style.cursor = 'auto';
 }
