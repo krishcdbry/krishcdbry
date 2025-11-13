@@ -511,6 +511,19 @@ body:hover .cursor {
     margin-bottom: 2rem;
 }
 
+.tech-section {
+    margin-bottom: 2rem;
+}
+
+.tech-category {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -639,6 +652,14 @@ body:hover .cursor {
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
+    .nav {
+        padding: 1.5rem 3rem;
+    }
+
+    .hero {
+        padding: 6rem 3rem 4rem;
+    }
+
     .work-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -651,36 +672,84 @@ body:hover .cursor {
         grid-column: span 4;
     }
 
+    .work-section,
+    .about-section,
+    .contact-section {
+        padding: 6rem 3rem;
+    }
+
     .about-container {
         grid-template-columns: 1fr;
         gap: 4rem;
+    }
+
+    .intro-stats {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .stat-value {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .nav {
         padding: 1.5rem 2rem;
+        flex-wrap: wrap;
     }
 
     .nav-menu {
         display: none;
     }
 
+    .nav-logo {
+        font-size: 1.25rem;
+    }
+
     .hero {
         padding: 6rem 2rem 4rem;
+        min-height: 90vh;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+        margin-bottom: 3rem;
     }
 
     .hero-intro {
         flex-direction: column;
         align-items: flex-start;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .intro-text p {
+        font-size: 1.1rem;
     }
 
     .intro-stats {
-        gap: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        width: 100%;
     }
 
     .stat-value {
         font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .marquee {
+        padding: 1.5rem 0;
+    }
+
+    .marquee-content span {
+        font-size: 1rem;
     }
 
     .work-section,
@@ -689,19 +758,73 @@ body:hover .cursor {
         padding: 4rem 2rem;
     }
 
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
     .work-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .work-card,
     .work-card-large,
     .work-card-wide {
         grid-column: span 1;
+        padding: 2rem;
+    }
+
+    .work-card h3 {
+        font-size: 2rem;
+    }
+
+    .card-tag {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-text {
+        font-size: 1.1rem;
+    }
+
+    .about-text .lead {
+        font-size: 1.4rem;
+    }
+
+    .about-highlights {
+        margin-top: 2rem;
+    }
+
+    .highlight {
+        font-size: 0.9rem;
+    }
+
+    .tech-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .tech-category {
+        font-size: 0.8rem;
+    }
+
+    .tech-tags {
+        gap: 0.5rem;
+    }
+
+    .tech-tags span {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
     }
 
     .contact-link {
         padding: 1.5rem 2rem;
         font-size: 1.2rem;
+    }
+
+    .contact-footer {
+        margin-top: 4rem;
+        font-size: 0.9rem;
     }
 
     body {

@@ -212,7 +212,7 @@ window.addEventListener('scroll', () => {
 
 // ==================== CONSOLE MESSAGE ====================
 if (typeof console !== 'undefined' && console.log) {
-    console.log('%cMKP.', 'font-size: 48px; font-weight: 700; color: #00ff88; font-family: monospace;');
+    console.log('%cKrish.', 'font-size: 48px; font-weight: 700; color: #00ff88; font-family: monospace;');
     console.log('%cBuilding the future, one line at a time.', 'font-size: 16px; color: #888; font-family: sans-serif;');
     console.log('%c\nInterested in the code? Let\'s talk.', 'font-size: 14px; color: #00d4ff;');
 }
