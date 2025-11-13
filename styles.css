@@ -468,7 +468,7 @@ body:hover .cursor {
     cursor: pointer;
     transition: all 0.3s var(--ease-out-expo);
     font-family: var(--font-display);
-    margin-bottom: 0;
+    margin-bottom: 2rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
