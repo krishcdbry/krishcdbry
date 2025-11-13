@@ -258,31 +258,92 @@ body:hover .cursor {
     50% { transform: translateY(20px); opacity: 0.3; }
 }
 
-/* ==================== MARQUEE ==================== */
-.marquee {
-    background: var(--color-surface);
-    padding: 2rem 0;
+/* ==================== MULTI-ROW MARQUEE ==================== */
+.marquee-wrapper {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.05), rgba(0, 212, 255, 0.05));
+    padding: 3rem 0;
     overflow: hidden;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 255, 136, 0.2);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    position: relative;
 }
 
-.marquee-content {
+.marquee-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+        var(--color-bg) 0%,
+        transparent 10%,
+        transparent 90%,
+        var(--color-bg) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.marquee-row {
     display: flex;
-    gap: 3rem;
-    animation: marquee 30s linear infinite;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.marquee-row:last-child {
+    margin-bottom: 0;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    animation: marquee-right 40s linear infinite;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.marquee-row-2 .marquee-track {
+    animation: marquee-left 35s linear infinite;
+}
+
+.marquee-row-3 .marquee-track {
+    animation: marquee-right 45s linear infinite;
+}
+
+.marquee-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: var(--color-text-muted);
+    transition: all 0.3s;
     white-space: nowrap;
 }
 
-.marquee-content span {
-    font-size: 1.25rem;
-    font-weight: 600;
-    font-family: var(--font-mono);
+.marquee-achievement {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    font-weight: 700;
 }
 
-@keyframes marquee {
+.marquee-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-cyan);
+    color: var(--color-cyan);
+}
+
+@keyframes marquee-right {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-left {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 /* ==================== WORK SECTION ==================== */
@@ -461,12 +522,49 @@ body:hover .cursor {
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 700;
     letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+}
+
+.about-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-cyan);
     margin-bottom: 3rem;
 }
 
 .about-text {
     font-size: 1.25rem;
     line-height: 1.8;
+}
+
+.about-section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.career-highlights {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+.career-highlights li {
+    padding: 0.75rem 0 0.75rem 2rem;
+    position: relative;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.career-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .about-text .lead {
@@ -744,12 +842,21 @@ body:hover .cursor {
         font-size: 0.7rem;
     }
 
-    .marquee {
-        padding: 1.5rem 0;
+    .marquee-wrapper {
+        padding: 2rem 0;
     }
 
-    .marquee-content span {
-        font-size: 1rem;
+    .marquee-row {
+        margin-bottom: 0.75rem;
+    }
+
+    .marquee-track {
+        gap: 1rem;
+    }
+
+    .marquee-item {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
     }
 
     .work-section,
@@ -790,6 +897,24 @@ body:hover .cursor {
 
     .about-text .lead {
         font-size: 1.4rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .about-section-heading {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+
+    .career-highlights li {
+        font-size: 0.95rem;
+        padding: 0.6rem 0 0.6rem 1.5rem;
+    }
+
+    .career-highlights li::before {
+        font-size: 1rem;
     }
 
     .about-highlights {
