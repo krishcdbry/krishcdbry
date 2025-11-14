@@ -202,7 +202,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 💡 Easter Egg
 
-Try entering the Konami Code on the website: ↑ ↑ ↓ ↓ ← → ← → B A
+🥷 Only ninjas can find it...
+
+**Hint:** Scroll to the bottom of the website footer, or view the HTML source code for clues.
 
 ---
 
