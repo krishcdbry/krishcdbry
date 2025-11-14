@@ -247,6 +247,9 @@ if (window.innerWidth < BREAKPOINTS.MOBILE) {
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     let konamiIndex = 0;
 
+    // Check if device is touch-enabled (mobile/tablet)
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
     document.addEventListener('keydown', function(e) {
         // Normalize key to lowercase for comparison
         const key = e.key.toLowerCase();
@@ -364,5 +367,228 @@ if (window.innerWidth < BREAKPOINTS.MOBILE) {
                 confetti.remove();
             }, (duration + delay) * 1000);
         }
+    }
+
+    // Mobile/Tablet Bottom Sheet for Konami Code
+    if (isTouchDevice) {
+        function showKonamiBottomSheet() {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 100001;
+                backdrop-filter: blur(10px);
+                animation: fadeIn 0.3s ease;
+            `;
+
+            // Create bottom sheet
+            const bottomSheet = document.createElement('div');
+            bottomSheet.style.cssText = `
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                border-radius: 24px 24px 0 0;
+                padding: 32px 24px;
+                z-index: 100002;
+                box-shadow: 0 -10px 40px rgba(0, 255, 136, 0.2);
+                border-top: 2px solid #00ff88;
+                animation: slideUp 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                max-height: 90vh;
+                overflow-y: auto;
+            `;
+
+            bottomSheet.innerHTML = `
+                <div style="text-align: center;">
+                    <div style="font-size: 60px; margin-bottom: 16px;">🥷</div>
+                    <h2 style="font-size: 24px; color: #00ff88; margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif; font-weight: 700;">
+                        Ninja Challenge
+                    </h2>
+                    <p style="font-size: 14px; color: #888; margin-bottom: 24px; font-family: 'Space Grotesk', sans-serif;">
+                        Enter the legendary Konami Code to unlock the secret
+                    </p>
+                    <div style="margin-bottom: 24px;">
+                        <input
+                            type="text"
+                            id="konami-input"
+                            placeholder="Type the code here..."
+                            autocomplete="off"
+                            style="
+                                width: 100%;
+                                padding: 16px;
+                                font-size: 16px;
+                                background: #0a0a0a;
+                                border: 2px solid #333;
+                                border-radius: 12px;
+                                color: #00ff88;
+                                font-family: 'JetBrains Mono', monospace;
+                                outline: none;
+                                transition: all 0.3s ease;
+                                text-align: center;
+                                letter-spacing: 2px;
+                            "
+                        />
+                    </div>
+                    <div style="font-size: 12px; color: #666; margin-bottom: 16px; font-family: 'JetBrains Mono', monospace;">
+                        Hint: ↑ ↑ ↓ ↓ ← → ← → B A
+                    </div>
+                    <button
+                        id="check-code-btn"
+                        style="
+                            width: 100%;
+                            padding: 16px;
+                            font-size: 16px;
+                            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+                            border: none;
+                            border-radius: 12px;
+                            color: #0a0a0a;
+                            font-family: 'Space Grotesk', sans-serif;
+                            font-weight: 700;
+                            cursor: pointer;
+                            transition: transform 0.2s ease;
+                            margin-bottom: 12px;
+                        "
+                    >
+                        Activate Ninja Mode
+                    </button>
+                    <button
+                        id="close-sheet-btn"
+                        style="
+                            width: 100%;
+                            padding: 12px;
+                            font-size: 14px;
+                            background: transparent;
+                            border: 1px solid #333;
+                            border-radius: 12px;
+                            color: #888;
+                            font-family: 'Space Grotesk', sans-serif;
+                            cursor: pointer;
+                        "
+                    >
+                        Close
+                    </button>
+                </div>
+            `;
+
+            // Add animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                @keyframes slideUp {
+                    from { transform: translateY(100%); }
+                    to { transform: translateY(0); }
+                }
+                #konami-input:focus {
+                    border-color: #00ff88 !important;
+                    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3) !important;
+                }
+                #check-code-btn:active {
+                    transform: scale(0.95) !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(bottomSheet);
+
+            // Focus input
+            setTimeout(() => {
+                const input = document.getElementById('konami-input');
+                input.focus();
+            }, 300);
+
+            // Check code function
+            function checkKonamiCode() {
+                const input = document.getElementById('konami-input');
+                const value = input.value.toLowerCase().replace(/\s+/g, '');
+
+                // Accept various formats
+                const validCodes = [
+                    'uuddlrlrba',
+                    '↑↑↓↓←→←→ba',
+                    'upupdowndownleftrightleftrightba',
+                ];
+
+                if (validCodes.some(code => value.includes(code))) {
+                    closeBottomSheet();
+                    setTimeout(() => {
+                        activateNinjaMode();
+                    }, 300);
+                } else {
+                    // Shake animation for wrong code
+                    bottomSheet.style.animation = 'shake 0.5s';
+                    input.style.borderColor = '#ff0000';
+                    setTimeout(() => {
+                        bottomSheet.style.animation = '';
+                        input.style.borderColor = '#333';
+                    }, 500);
+                }
+            }
+
+            // Close function
+            function closeBottomSheet() {
+                bottomSheet.style.animation = 'slideDown 0.3s ease forwards';
+                overlay.style.animation = 'fadeOut 0.3s ease forwards';
+                setTimeout(() => {
+                    overlay.remove();
+                    bottomSheet.remove();
+                    style.remove();
+                }, 300);
+            }
+
+            // Add shake animation
+            const shakeStyle = document.createElement('style');
+            shakeStyle.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                    20%, 40%, 60%, 80% { transform: translateX(10px); }
+                }
+                @keyframes slideDown {
+                    from { transform: translateY(0); }
+                    to { transform: translateY(100%); }
+                }
+                @keyframes fadeOut {
+                    from { opacity: 1; }
+                    to { opacity: 0; }
+                }
+            `;
+            document.head.appendChild(shakeStyle);
+
+            // Event listeners
+            document.getElementById('check-code-btn').addEventListener('click', checkKonamiCode);
+            document.getElementById('close-sheet-btn').addEventListener('click', closeBottomSheet);
+            overlay.addEventListener('click', closeBottomSheet);
+
+            // Enter key to check
+            document.getElementById('konami-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkKonamiCode();
+                }
+            });
+        }
+
+        // Add click handler to ninja marquee items (after DOM is loaded)
+        setTimeout(() => {
+            const ninjaItems = document.querySelectorAll('.marquee-item');
+            ninjaItems.forEach(item => {
+                if (item.textContent.includes('Are you a ninja')) {
+                    item.style.cursor = 'pointer';
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showKonamiBottomSheet();
+                    });
+                }
+            });
+        }, 1000);
     }
 })();

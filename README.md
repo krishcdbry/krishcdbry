@@ -204,7 +204,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 🥷 Only ninjas can find it...
 
-**Hint:** Scroll to the bottom of the website footer, or view the HTML source code for clues.
+**Hint:** Look for the scrolling hint in the marquee, or view the HTML source code for clues.
+
+**Mobile Users:** Tap the ninja hint when you find it!
 
 ---
 
