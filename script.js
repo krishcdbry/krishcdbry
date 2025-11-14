@@ -241,3 +241,120 @@ if (window.innerWidth < BREAKPOINTS.MOBILE) {
     if (cursorFollower) cursorFollower.style.display = 'none';
     document.body.style.cursor = 'auto';
 }
+
+// ==================== KONAMI CODE EASTER EGG ====================
+(function() {
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', function(e) {
+        const key = e.key.toLowerCase() === 'arrowup' || e.key.toLowerCase() === 'arrowdown' ||
+                     e.key.toLowerCase() === 'arrowleft' || e.key.toLowerCase() === 'arrowright'
+                     ? e.key : e.key.toLowerCase();
+
+        if (key === konamiCode[konamiIndex].toLowerCase()) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                activateNinjaMode();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    function activateNinjaMode() {
+        // Console message
+        console.log('%c🥷 NINJA MODE ACTIVATED! 🥷', 'font-size: 24px; font-weight: 700; color: #00ff88; background: #0a0a0a; padding: 10px;');
+
+        // Create achievement popup
+        const achievement = document.createElement('div');
+        achievement.innerHTML = `
+            <div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+                        border: 2px solid #00ff88; border-radius: 20px; padding: 40px 60px;
+                        z-index: 100000; text-align: center; box-shadow: 0 0 100px rgba(0, 255, 136, 0.5);
+                        animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
+                <div style="font-size: 80px; margin-bottom: 20px;">🥷</div>
+                <div style="font-size: 28px; font-weight: 700; color: #00ff88; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">
+                    ACHIEVEMENT UNLOCKED!
+                </div>
+                <div style="font-size: 20px; color: #888; font-family: 'Space Grotesk', sans-serif;">
+                    Alpha Ninja Mode Activated
+                </div>
+                <div style="font-size: 14px; color: #00d4ff; margin-top: 20px; font-family: 'JetBrains Mono', monospace;">
+                    You found the secret! 🎮
+                </div>
+            </div>
+        `;
+
+        // Add pop-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes popIn {
+                0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            }
+            @keyframes fadeOut {
+                0% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+            @keyframes confettiFall {
+                0% { transform: translateY(-100vh) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(720deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        document.body.appendChild(achievement);
+
+        // Create confetti effect
+        createConfetti();
+
+        // Add temporary glow effect to body
+        document.body.style.transition = 'box-shadow 0.5s';
+        document.body.style.boxShadow = 'inset 0 0 100px rgba(0, 255, 136, 0.2)';
+
+        // Remove achievement after 3 seconds
+        setTimeout(() => {
+            achievement.style.animation = 'fadeOut 0.5s forwards';
+            setTimeout(() => {
+                achievement.remove();
+                document.body.style.boxShadow = 'none';
+            }, 500);
+        }, 3000);
+    }
+
+    function createConfetti() {
+        const colors = ['#00ff88', '#00d4ff', '#7c3aed', '#ec4899', '#10b981', '#f59e0b'];
+        const confettiCount = 50;
+
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const left = Math.random() * 100;
+            const delay = Math.random() * 3;
+            const duration = 3 + Math.random() * 2;
+            const size = 10 + Math.random() * 10;
+
+            confetti.style.cssText = `
+                position: fixed;
+                top: -20px;
+                left: ${left}%;
+                width: ${size}px;
+                height: ${size}px;
+                background: ${color};
+                z-index: 99999;
+                pointer-events: none;
+                animation: confettiFall ${duration}s linear ${delay}s forwards;
+                opacity: 0.8;
+            `;
+
+            document.body.appendChild(confetti);
+
+            // Remove confetti after animation
+            setTimeout(() => {
+                confetti.remove();
+            }, (duration + delay) * 1000);
+        }
+    }
+})();
