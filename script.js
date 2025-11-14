@@ -248,17 +248,25 @@ if (window.innerWidth < BREAKPOINTS.MOBILE) {
     let konamiIndex = 0;
 
     document.addEventListener('keydown', function(e) {
-        const key = e.key.toLowerCase() === 'arrowup' || e.key.toLowerCase() === 'arrowdown' ||
-                     e.key.toLowerCase() === 'arrowleft' || e.key.toLowerCase() === 'arrowright'
-                     ? e.key : e.key.toLowerCase();
+        // Normalize key to lowercase for comparison
+        const key = e.key.toLowerCase();
+        const expectedKey = konamiCode[konamiIndex].toLowerCase();
 
-        if (key === konamiCode[konamiIndex].toLowerCase()) {
+        if (key === expectedKey) {
             konamiIndex++;
+
+            // Debug logging (can be removed later)
+            console.log(`Konami progress: ${konamiIndex}/${konamiCode.length}`);
+
             if (konamiIndex === konamiCode.length) {
                 activateNinjaMode();
                 konamiIndex = 0;
             }
         } else {
+            // Reset if wrong key is pressed
+            if (konamiIndex > 0) {
+                console.log(`Konami reset! Got "${key}", expected "${expectedKey}"`);
+            }
             konamiIndex = 0;
         }
     });
