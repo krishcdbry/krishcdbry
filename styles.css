@@ -1154,6 +1154,10 @@ body:hover .cursor {
         padding: 6rem 3rem 4rem;
     }
 
+    .hero-scroll {
+        display: none;
+    }
+
     .work-grid {
         grid-template-columns: repeat(4, 1fr);
     }
