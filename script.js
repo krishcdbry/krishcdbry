@@ -717,3 +717,408 @@ if (window.innerWidth < BREAKPOINTS.MOBILE) {
         }, 1000);
     }
 })();
+
+// ==================== INTERACTIVE TERMINAL ====================
+(function() {
+    // Terminal state
+    let commandHistory = [];
+    let historyIndex = -1;
+    let currentGame = null;
+
+    // Portfolio data
+    const portfolioData = {
+        about: `
+╔══════════════════════════════════════════════════════════╗
+║           MOHANA KRISHNA PADDA - Alpha Ninja             ║
+╚══════════════════════════════════════════════════════════╝
+
+→ Head of Engineering @ Jivi AI
+→ 15 Years of Full-Stack Development
+→ 2 Unicorns: BharatPe ($2.8B) & Blinkit ($800M)
+→ 23K+ LinkedIn Followers
+→ National Ethical Hacking Champion (2013)
+
+"Building the future, one line at a time."
+        `,
+        skills: `
+╔══════════════════════════════════════════════════════════╗
+║                    TECH ARSENAL                          ║
+╚══════════════════════════════════════════════════════════╝
+
+Frontend:  React, Next.js, TypeScript, Vue.js
+Backend:   Node.js, Java, Spring Boot, Python, FastAPI
+Database:  PostgreSQL, MongoDB, Redis
+Cloud:     AWS, Docker, Kubernetes, Terraform
+AI/ML:     OpenAI, LangChain, Pinecone, AI Agents
+Other:     GraphQL, Kafka, ElasticSearch, Microservices
+        `,
+        experience: `
+╔══════════════════════════════════════════════════════════╗
+║                   CAREER JOURNEY                         ║
+╚══════════════════════════════════════════════════════════╝
+
+[Current] Jivi AI
+→ Head of Engineering
+→ Building AI-powered solutions
+
+[2021-2023] BharatPe
+→ Director of Engineering
+→ Built BharatSwipe - India's First ZERO Commission POS
+→ 700+ Cr transactions processed
+
+[2020-2021] Blinkit (Grofers)
+→ Engineering Lead
+→ Optimized deployment: 12x speed improvement
+→ 5x loading time boost
+
+[Previous] Multiple startups & tech companies
+→ Founded GrowJS Community
+→ 5 Startups Founded
+        `,
+        projects: `
+╔══════════════════════════════════════════════════════════╗
+║                  NOTABLE PROJECTS                        ║
+╚══════════════════════════════════════════════════════════╝
+
+→ BharatSwipe: India's First ZERO Commission POS
+→ AI Agents Platform: LangChain & OpenAI Integration
+→ GrowJS Community: JavaScript Community in Delhi NCR
+→ 8+ NPM Packages Published
+→ Multiple Open Source Contributions
+        `,
+        contact: `
+╔══════════════════════════════════════════════════════════╗
+║                  LET'S CONNECT                           ║
+╚══════════════════════════════════════════════════════════╝
+
+Email:          krishcdbry@gmail.com
+LinkedIn:       linkedin.com/in/krishcdbry
+GitHub:         github.com/krishcdbry
+Twitter:        @krishcdbry
+Topmate:        topmate.io/krishcdbry
+
+Available for: Advisory & Consulting
+        `
+    };
+
+    // Create floating terminal button
+    const terminalBtn = document.createElement('button');
+    terminalBtn.innerHTML = '⌨️';
+    terminalBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
+        z-index: 10000;
+        transition: all 0.3s ease;
+    `;
+    terminalBtn.title = 'Open Terminal (Play Games & Explore)';
+    document.body.appendChild(terminalBtn);
+
+    // Button hover effect
+    terminalBtn.addEventListener('mouseenter', () => {
+        terminalBtn.style.transform = 'scale(1.1)';
+        terminalBtn.style.boxShadow = '0 6px 30px rgba(0, 255, 136, 0.6)';
+    });
+    terminalBtn.addEventListener('mouseleave', () => {
+        terminalBtn.style.transform = 'scale(1)';
+        terminalBtn.style.boxShadow = '0 4px 20px rgba(0, 255, 136, 0.4)';
+    });
+
+    // Create terminal modal
+    function createTerminal() {
+        const terminal = document.createElement('div');
+        terminal.id = 'krish-terminal';
+        terminal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 100003;
+            display: none;
+            backdrop-filter: blur(10px);
+        `;
+
+        terminal.innerHTML = `
+            <div style="max-width: 1000px; margin: 50px auto; height: calc(100vh - 100px); display: flex; flex-direction: column; background: #0a0a0a; border: 2px solid #00ff88; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);">
+                <!-- Terminal Header -->
+                <div style="background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%); color: #0a0a0a; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600;">
+                    <span>⌨️ KRISH.TERMINAL v1.0</span>
+                    <button id="close-terminal" style="background: transparent; border: none; color: #0a0a0a; font-size: 24px; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">×</button>
+                </div>
+
+                <!-- Terminal Output -->
+                <div id="terminal-output" style="flex: 1; overflow-y: auto; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 1.6; color: #00ff88;">
+                    <div style="color: #00d4ff; margin-bottom: 10px;">Welcome to Krish Terminal!</div>
+                    <div style="color: #888; margin-bottom: 20px;">Type 'help' to see available commands, or try 'snake' to play a game!</div>
+                </div>
+
+                <!-- Terminal Input -->
+                <div style="padding: 15px 20px; background: #0f0f0f; border-top: 1px solid #00ff88; display: flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace;">
+                    <span style="color: #00ff88;">→</span>
+                    <input
+                        id="terminal-input"
+                        type="text"
+                        autocomplete="off"
+                        spellcheck="false"
+                        style="flex: 1; background: transparent; border: none; outline: none; color: #00ff88; font-family: 'JetBrains Mono', monospace; font-size: 14px;"
+                        placeholder="Enter command..."
+                    />
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(terminal);
+        return terminal;
+    }
+
+    const terminal = createTerminal();
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalInput = document.getElementById('terminal-input');
+
+    // Terminal functions
+    function printToTerminal(text, color = '#00ff88') {
+        const line = document.createElement('div');
+        line.style.color = color;
+        line.style.whiteSpace = 'pre-wrap';
+        line.innerHTML = text;
+        terminalOutput.appendChild(line);
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+
+    function clearTerminal() {
+        terminalOutput.innerHTML = '';
+    }
+
+    // Command handlers
+    const commands = {
+        help: () => `
+╔══════════════════════════════════════════════════════════╗
+║                  AVAILABLE COMMANDS                      ║
+╚══════════════════════════════════════════════════════════╝
+
+📋 PORTFOLIO COMMANDS:
+  about       - About Mohana Krishna Padda
+  skills      - Technical skills & stack
+  experience  - Career journey
+  projects    - Notable projects
+  contact     - Contact information
+  resume      - Download resume
+
+🎮 MINI GAMES:
+  snake       - Play classic Snake game
+  tictactoe   - Tic-Tac-Toe vs AI
+  guess       - Number guessing game
+
+🛠️ SYSTEM COMMANDS:
+  clear       - Clear terminal
+  help        - Show this help message
+  exit        - Close terminal
+
+🥷 EASTER EGGS:
+  sudo rm -rf /  - Try it! (Don't worry, it's safe)
+  hack           - Activate hacker mode
+  matrix         - Enter the Matrix
+        `,
+        about: () => portfolioData.about,
+        skills: () => portfolioData.skills,
+        experience: () => portfolioData.experience,
+        projects: () => portfolioData.projects,
+        contact: () => portfolioData.contact,
+        resume: () => {
+            window.open('/MohanaKrishnaPadda-Resume.pdf', '_blank');
+            return '📄 Opening resume in new tab...';
+        },
+        clear: () => {
+            clearTerminal();
+            return '';
+        },
+        exit: () => {
+            terminal.style.display = 'none';
+            return '';
+        },
+
+        // Easter eggs
+        'sudo rm -rf /': () => `
+🚨 CRITICAL ERROR DETECTED! 🚨
+
+Just kidding! I'm not that kind of ninja 😄
+Your system is safe. Always be careful with commands though!
+        `,
+        hack: () => `
+> Initiating hack sequence...
+> Accessing mainframe... ███████████ 100%
+> Bypassing firewall... ███████████ 100%
+> Downloading data... ███████████ 100%
+
+🥷 HACK SUCCESSFUL! You're now an honorary Alpha Ninja!
+        `,
+        matrix: () => {
+            // Trigger brief Matrix effect
+            const matrixColors = ['#00ff88', '#00d4ff', '#7c3aed'];
+            let count = 0;
+            const interval = setInterval(() => {
+                const randomText = Math.random().toString(36).substring(7);
+                printToTerminal(randomText, matrixColors[count % matrixColors.length]);
+                count++;
+                if (count > 20) {
+                    clearInterval(interval);
+                    printToTerminal('\nWelcome to the Matrix, Neo... 😎', '#00ff88');
+                }
+            }, 100);
+            return 'Loading Matrix...';
+        }
+    };
+
+    // Process command
+    function processCommand(input) {
+        const cmd = input.trim().toLowerCase();
+
+        if (cmd === '') return;
+
+        printToTerminal(`→ ${input}`, '#00d4ff');
+
+        if (commands[cmd]) {
+            const output = commands[cmd]();
+            if (output) printToTerminal(output);
+        } else if (cmd === 'snake') {
+            startSnakeGame();
+        } else if (cmd === 'tictactoe') {
+            startTicTacToe();
+        } else if (cmd === 'guess') {
+            startGuessGame();
+        } else {
+            printToTerminal(`Command not found: ${cmd}\nType 'help' for available commands.`, '#ff4444');
+        }
+
+        commandHistory.push(input);
+        historyIndex = commandHistory.length;
+    }
+
+    // Snake Game
+    function startSnakeGame() {
+        printToTerminal(`
+╔══════════════════════════════════════════════════════════╗
+║                    SNAKE GAME                            ║
+╚══════════════════════════════════════════════════════════╝
+
+Use WASD or Arrow Keys to move
+Press ESC to quit
+
+Starting in 2 seconds...
+        `);
+
+        setTimeout(() => {
+            printToTerminal('🎮 Snake game coming soon! Stay tuned...', '#00d4ff');
+            printToTerminal('Try "tictactoe" or "guess" for now!', '#888');
+        }, 2000);
+    }
+
+    // Tic-Tac-Toe Game
+    function startTicTacToe() {
+        printToTerminal('🎮 Tic-Tac-Toe game coming soon!', '#00d4ff');
+        printToTerminal('Try "guess" for now!', '#888');
+    }
+
+    // Guess the Number Game
+    function startGuessGame() {
+        const target = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+
+        printToTerminal(`
+╔══════════════════════════════════════════════════════════╗
+║              GUESS THE NUMBER GAME                       ║
+╚══════════════════════════════════════════════════════════╝
+
+I'm thinking of a number between 1 and 100.
+Type your guess and press Enter!
+        `);
+
+        currentGame = {
+            type: 'guess',
+            target: target,
+            attempts: 0,
+            process: (guess) => {
+                const num = parseInt(guess);
+                if (isNaN(num)) {
+                    printToTerminal('Please enter a valid number!', '#ff4444');
+                    return;
+                }
+
+                attempts++;
+
+                if (num === target) {
+                    printToTerminal(`
+🎉 CORRECT! You guessed it in ${attempts} attempts!
+The number was ${target}.
+
+Type any command to continue...
+                    `, '#00ff88');
+                    currentGame = null;
+                } else if (num < target) {
+                    printToTerminal(`📈 Too low! Try again. (Attempt ${attempts})`, '#ffaa00');
+                } else {
+                    printToTerminal(`📉 Too high! Try again. (Attempt ${attempts})`, '#ffaa00');
+                }
+            }
+        };
+    }
+
+    // Event listeners
+    terminalBtn.addEventListener('click', () => {
+        terminal.style.display = 'block';
+        terminalInput.focus();
+    });
+
+    document.getElementById('close-terminal').addEventListener('click', () => {
+        terminal.style.display = 'none';
+    });
+
+    terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const input = terminalInput.value;
+
+            if (currentGame) {
+                currentGame.process(input);
+            } else {
+                processCommand(input);
+            }
+
+            terminalInput.value = '';
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                terminalInput.value = commandHistory[historyIndex];
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                terminalInput.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = commandHistory.length;
+                terminalInput.value = '';
+            }
+        } else if (e.key === 'Escape') {
+            terminal.style.display = 'none';
+        }
+    });
+
+    // Close terminal on overlay click
+    terminal.addEventListener('click', (e) => {
+        if (e.target === terminal) {
+            terminal.style.display = 'none';
+        }
+    });
+})();
+
