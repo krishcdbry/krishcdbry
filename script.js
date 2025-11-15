@@ -1533,7 +1533,7 @@ He's also published 8+ NPM packages and has multiple open-source contributions! 
 📅 Book a session: ${knowledgeBase.contact.topmate}
 
 He's available for advisory & consulting! 🤝`,
-                suggestions: ['Download resume', 'See his experience', 'His projects']
+                suggestions: ['See his experience', 'His projects', 'His skills']
             };
         }
 
@@ -1559,22 +1559,12 @@ Plus he's worked at 2 unicorns with a combined valuation of $3.6 billion! 🦄`,
             };
         }
 
-        // Resume patterns
-        if (/\b(resume|cv|download)\b/.test(msg)) {
-            return {
-                type: 'resume',
-                response: `You can download Krish's resume here! I'll open it in a new tab. 📄`,
-                action: 'download_resume',
-                suggestions: ['See his experience', 'Contact info', 'His projects']
-            };
-        }
-
         // Thanks patterns
         if (/\b(thanks|thank you|appreciate)\b/.test(msg)) {
             return {
                 type: 'thanks',
                 response: `You're welcome! 😊 Feel free to ask me anything else about Krish's experience, skills, or projects. Want to connect with him?`,
-                suggestions: ['Contact info', 'See projects', 'Download resume']
+                suggestions: ['Contact info', 'See projects', 'His experience']
             };
         }
 
@@ -1760,11 +1750,6 @@ What would you like to know?`,
         setTimeout(() => {
             const response = findBestMatch(message);
             addMessage(response.response, false, response.suggestions || []);
-
-            // Handle special actions
-            if (response.action === 'download_resume') {
-                window.open('/MohanaKrishnaPadda-Resume.pdf', '_blank');
-            }
 
             chatHistory.push({ user: message, bot: response.response });
         }, 500);
