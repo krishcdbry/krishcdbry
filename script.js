@@ -811,14 +811,15 @@ Available for: Advisory & Consulting
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
-        border: none;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         font-size: 28px;
         cursor: pointer;
-        box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         z-index: 10000;
         transition: all 0.3s ease;
         opacity: 0.85;
+        backdrop-filter: blur(10px);
     `;
     terminalBtn.title = 'Open Terminal (Play Games & Explore)';
     document.body.appendChild(terminalBtn);
@@ -826,12 +827,16 @@ Available for: Advisory & Consulting
     // Button hover effect
     terminalBtn.addEventListener('mouseenter', () => {
         terminalBtn.style.transform = 'scale(1.1)';
-        terminalBtn.style.boxShadow = '0 6px 30px rgba(0, 255, 136, 0.6)';
+        terminalBtn.style.boxShadow = '0 6px 30px rgba(255, 255, 255, 0.4)';
+        terminalBtn.style.background = 'rgba(0, 0, 0, 0.8)';
+        terminalBtn.style.borderColor = 'rgba(255, 255, 255, 0.5)';
         terminalBtn.style.opacity = '1';
     });
     terminalBtn.addEventListener('mouseleave', () => {
         terminalBtn.style.transform = 'scale(1)';
-        terminalBtn.style.boxShadow = '0 4px 20px rgba(0, 255, 136, 0.4)';
+        terminalBtn.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+        terminalBtn.style.background = 'rgba(0, 0, 0, 0.6)';
+        terminalBtn.style.borderColor = 'rgba(255, 255, 255, 0.3)';
         terminalBtn.style.opacity = '0.85';
     });
 
@@ -1608,14 +1613,15 @@ What would you like to know?`,
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
-        border: none;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         font-size: 28px;
         cursor: pointer;
-        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         z-index: 10000;
         transition: all 0.3s ease;
         opacity: 0.85;
+        backdrop-filter: blur(10px);
     `;
     chatBtn.title = 'Chat with AI Assistant';
     document.body.appendChild(chatBtn);
@@ -1623,12 +1629,16 @@ What would you like to know?`,
     // Button hover effect
     chatBtn.addEventListener('mouseenter', () => {
         chatBtn.style.transform = 'scale(1.1)';
-        chatBtn.style.boxShadow = '0 6px 30px rgba(124, 58, 237, 0.6)';
+        chatBtn.style.boxShadow = '0 6px 30px rgba(255, 255, 255, 0.4)';
+        chatBtn.style.background = 'rgba(0, 0, 0, 0.8)';
+        chatBtn.style.borderColor = 'rgba(255, 255, 255, 0.5)';
         chatBtn.style.opacity = '1';
     });
     chatBtn.addEventListener('mouseleave', () => {
         chatBtn.style.transform = 'scale(1)';
-        chatBtn.style.boxShadow = '0 4px 20px rgba(124, 58, 237, 0.4)';
+        chatBtn.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+        chatBtn.style.background = 'rgba(0, 0, 0, 0.6)';
+        chatBtn.style.borderColor = 'rgba(255, 255, 255, 0.3)';
         chatBtn.style.opacity = '0.85';
     });
 
