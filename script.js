@@ -1011,22 +1011,285 @@ Your system is safe. Always be careful with commands though!
 ║                    SNAKE GAME                            ║
 ╚══════════════════════════════════════════════════════════╝
 
-Use WASD or Arrow Keys to move
+Controls: WASD or Arrow Keys
+Goal: Eat the food (●) and grow!
 Press ESC to quit
-
-Starting in 2 seconds...
         `);
 
+        const gridSize = 20;
+        let snake = [{x: 10, y: 10}];
+        let food = {x: 15, y: 15};
+        let direction = {x: 1, y: 0};
+        let score = 0;
+        let gameOver = false;
+        let gameInterval = null;
+
+        // Render game board
+        function renderGame() {
+            let board = '\n';
+            for (let y = 0; y < gridSize; y++) {
+                for (let x = 0; x < gridSize; x++) {
+                    const isSnake = snake.some(s => s.x === x && s.y === y);
+                    const isHead = snake[0].x === x && snake[0].y === y;
+                    const isFood = food.x === x && food.y === y;
+
+                    if (isHead) {
+                        board += '🟢 ';
+                    } else if (isSnake) {
+                        board += '🟩 ';
+                    } else if (isFood) {
+                        board += '🔴 ';
+                    } else {
+                        board += '⬛ ';
+                    }
+                }
+                board += '\n';
+            }
+            board += `\nScore: ${score} | Length: ${snake.length}`;
+            return board;
+        }
+
+        // Spawn food
+        function spawnFood() {
+            do {
+                food = {
+                    x: Math.floor(Math.random() * gridSize),
+                    y: Math.floor(Math.random() * gridSize)
+                };
+            } while (snake.some(s => s.x === food.x && s.y === food.y));
+        }
+
+        // Game loop
+        function gameLoop() {
+            if (gameOver) return;
+
+            // Move snake
+            const newHead = {
+                x: snake[0].x + direction.x,
+                y: snake[0].y + direction.y
+            };
+
+            // Check collisions
+            if (newHead.x < 0 || newHead.x >= gridSize ||
+                newHead.y < 0 || newHead.y >= gridSize ||
+                snake.some(s => s.x === newHead.x && s.y === newHead.y)) {
+                gameOver = true;
+                clearInterval(gameInterval);
+                clearTerminal();
+                printToTerminal(`
+╔══════════════════════════════════════════════════════════╗
+║                   GAME OVER!                             ║
+╚══════════════════════════════════════════════════════════╝
+
+Final Score: ${score}
+Snake Length: ${snake.length}
+
+Type any command to continue...
+                `, '#ff4444');
+                currentGame = null;
+                return;
+            }
+
+            snake.unshift(newHead);
+
+            // Check if ate food
+            if (newHead.x === food.x && newHead.y === food.y) {
+                score += 10;
+                spawnFood();
+            } else {
+                snake.pop();
+            }
+
+            // Render
+            clearTerminal();
+            printToTerminal(renderGame(), '#00ff88');
+        }
+
+        // Keyboard handler
+        function handleSnakeKeys(e) {
+            if (gameOver) return;
+
+            const key = e.key.toLowerCase();
+
+            if (key === 'escape') {
+                gameOver = true;
+                clearInterval(gameInterval);
+                clearTerminal();
+                printToTerminal('Game quit. Type any command to continue...', '#888');
+                document.removeEventListener('keydown', handleSnakeKeys);
+                currentGame = null;
+                return;
+            }
+
+            // Prevent opposite direction
+            if ((key === 'w' || key === 'arrowup') && direction.y === 0) {
+                direction = {x: 0, y: -1};
+            } else if ((key === 's' || key === 'arrowdown') && direction.y === 0) {
+                direction = {x: 0, y: 1};
+            } else if ((key === 'a' || key === 'arrowleft') && direction.x === 0) {
+                direction = {x: -1, y: 0};
+            } else if ((key === 'd' || key === 'arrowright') && direction.x === 0) {
+                direction = {x: 1, y: 0};
+            }
+        }
+
+        document.addEventListener('keydown', handleSnakeKeys);
+
+        currentGame = {
+            type: 'snake',
+            process: () => {} // Snake uses keyboard events
+        };
+
+        // Start game
+        printToTerminal('\nStarting in 2 seconds...', '#888');
         setTimeout(() => {
-            printToTerminal('🎮 Snake game coming soon! Stay tuned...', '#00d4ff');
-            printToTerminal('Try "tictactoe" or "guess" for now!', '#888');
+            clearTerminal();
+            printToTerminal(renderGame(), '#00ff88');
+            gameInterval = setInterval(gameLoop, 200);
         }, 2000);
     }
 
     // Tic-Tac-Toe Game
     function startTicTacToe() {
-        printToTerminal('🎮 Tic-Tac-Toe game coming soon!', '#00d4ff');
-        printToTerminal('Try "guess" for now!', '#888');
+        printToTerminal(`
+╔══════════════════════════════════════════════════════════╗
+║                 TIC-TAC-TOE vs AI                        ║
+╚══════════════════════════════════════════════════════════╝
+
+You are X, AI is O
+Enter position (1-9):
+
+ 1 | 2 | 3
+-----------
+ 4 | 5 | 6
+-----------
+ 7 | 8 | 9
+        `);
+
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let playerSymbol = 'X';
+        let aiSymbol = 'O';
+
+        function renderBoard() {
+            const display = `
+ ${board[0] || '1'} │ ${board[1] || '2'} │ ${board[2] || '3'}
+───┼───┼───
+ ${board[3] || '4'} │ ${board[4] || '5'} │ ${board[5] || '6'}
+───┼───┼───
+ ${board[6] || '7'} │ ${board[7] || '8'} │ ${board[8] || '9'}
+            `;
+            return display;
+        }
+
+        function checkWinner() {
+            const wins = [
+                [0,1,2], [3,4,5], [6,7,8], // rows
+                [0,3,6], [1,4,7], [2,5,8], // cols
+                [0,4,8], [2,4,6] // diagonals
+            ];
+
+            for (let win of wins) {
+                const [a, b, c] = win;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    return board[a];
+                }
+            }
+
+            if (board.every(cell => cell !== '')) {
+                return 'tie';
+            }
+
+            return null;
+        }
+
+        function aiMove() {
+            // Simple AI: Try to win, block player, or random
+            const emptySpots = board.map((val, idx) => val === '' ? idx : null).filter(val => val !== null);
+
+            // Check if AI can win
+            for (let spot of emptySpots) {
+                board[spot] = aiSymbol;
+                if (checkWinner() === aiSymbol) {
+                    return; // AI wins
+                }
+                board[spot] = '';
+            }
+
+            // Block player from winning
+            for (let spot of emptySpots) {
+                board[spot] = playerSymbol;
+                if (checkWinner() === playerSymbol) {
+                    board[spot] = aiSymbol;
+                    return;
+                }
+                board[spot] = '';
+            }
+
+            // Take center if available
+            if (board[4] === '') {
+                board[4] = aiSymbol;
+                return;
+            }
+
+            // Random move
+            const randomSpot = emptySpots[Math.floor(Math.random() * emptySpots.length)];
+            board[randomSpot] = aiSymbol;
+        }
+
+        currentGame = {
+            type: 'tictactoe',
+            process: (input) => {
+                const position = parseInt(input) - 1;
+
+                if (isNaN(position) || position < 0 || position > 8) {
+                    printToTerminal('Invalid input! Enter 1-9', '#ff4444');
+                    return;
+                }
+
+                if (board[position] !== '') {
+                    printToTerminal('Spot already taken!', '#ff4444');
+                    return;
+                }
+
+                // Player move
+                board[position] = playerSymbol;
+                printToTerminal(renderBoard(), '#00d4ff');
+
+                let winner = checkWinner();
+                if (winner) {
+                    if (winner === 'tie') {
+                        printToTerminal("\n🤝 It's a tie!", '#ffaa00');
+                    } else if (winner === playerSymbol) {
+                        printToTerminal('\n🎉 You win!', '#00ff88');
+                    }
+                    printToTerminal('\nType any command to continue...', '#888');
+                    currentGame = null;
+                    return;
+                }
+
+                // AI move
+                printToTerminal('\nAI is thinking...', '#888');
+                setTimeout(() => {
+                    aiMove();
+                    printToTerminal(renderBoard(), '#00d4ff');
+
+                    winner = checkWinner();
+                    if (winner) {
+                        if (winner === 'tie') {
+                            printToTerminal("\n🤝 It's a tie!", '#ffaa00');
+                        } else if (winner === aiSymbol) {
+                            printToTerminal('\n😈 AI wins!', '#ff4444');
+                        }
+                        printToTerminal('\nType any command to continue...', '#888');
+                        currentGame = null;
+                    } else {
+                        printToTerminal('\nYour turn! Enter position (1-9):', '#00ff88');
+                    }
+                }, 500);
+            }
+        };
+
+        printToTerminal('\nYour turn! Enter position (1-9):', '#00ff88');
     }
 
     // Guess the Number Game
