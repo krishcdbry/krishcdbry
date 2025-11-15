@@ -1385,3 +1385,415 @@ Type any command to continue...
     });
 })();
 
+// ==================== AI CHATBOT ====================
+(function() {
+    // Chatbot state
+    let chatHistory = [];
+    let isOpen = false;
+
+    // Knowledge base from portfolio
+    const knowledgeBase = {
+        name: 'Mohana Krishna Padda',
+        nickname: 'Krish',
+        role: 'Head of Engineering',
+        company: 'Jivi AI',
+        experience: '15 years',
+        unicorns: ['BharatPe ($2.8B)', 'Blinkit ($800M)'],
+        achievements: [
+            'National Ethical Hacking Champion (2013)',
+            '23K+ LinkedIn Followers',
+            'Founded GrowJS Community',
+            '5 Startups Founded',
+            '8+ NPM Packages Published'
+        ],
+        skills: {
+            frontend: ['React', 'Next.js', 'TypeScript', 'Vue.js', 'React Native'],
+            backend: ['Node.js', 'Java', 'Spring Boot', 'Python', 'FastAPI'],
+            database: ['PostgreSQL', 'MongoDB', 'Redis'],
+            cloud: ['AWS', 'Docker', 'Kubernetes', 'Terraform'],
+            ai: ['OpenAI', 'LangChain', 'Pinecone', 'AI Agents'],
+            other: ['GraphQL', 'Kafka', 'ElasticSearch', 'Microservices']
+        },
+        projects: [
+            'BharatSwipe: India\'s First ZERO Commission POS (700+ Cr transactions)',
+            'AI Agents Platform with LangChain & OpenAI',
+            'GrowJS Community in Delhi NCR'
+        ],
+        contact: {
+            email: 'krishcdbry@gmail.com',
+            linkedin: 'linkedin.com/in/krishcdbry',
+            github: 'github.com/krishcdbry',
+            twitter: '@krishcdbry',
+            topmate: 'topmate.io/krishcdbry'
+        }
+    };
+
+    // Pattern matching engine
+    function findBestMatch(message) {
+        const msg = message.toLowerCase();
+
+        // Greeting patterns
+        if (/^(hi|hello|hey|greetings|sup|yo)\b/.test(msg)) {
+            return {
+                type: 'greeting',
+                response: `Hey there! 👋 I'm Krish's AI assistant. I can help you learn about his experience, skills, projects, or how to connect with him. What would you like to know?`,
+                suggestions: ['Tell me about his experience', 'What are his skills?', 'Show me projects', 'How to contact?']
+            };
+        }
+
+        // About/Bio patterns
+        if (/\b(who|about|bio|tell me about|introduce)\b/.test(msg)) {
+            return {
+                type: 'about',
+                response: `${knowledgeBase.name} (Krish) is a ${knowledgeBase.role} at ${knowledgeBase.company} with ${knowledgeBase.experience} of experience. He's worked at 2 unicorns: ${knowledgeBase.unicorns.join(' and ')}.
+
+He's a National Ethical Hacking Champion with 23K+ LinkedIn followers and has founded 5 startups! 🚀`,
+                suggestions: ['What technologies does he use?', 'Tell me about his projects', 'How to reach him?']
+            };
+        }
+
+        // Experience patterns
+        if (/\b(experience|work|career|job|position|role)\b/.test(msg)) {
+            return {
+                type: 'experience',
+                response: `Krish has ${knowledgeBase.experience} of full-stack development experience:
+
+🎯 Current: Head of Engineering at Jivi AI
+💰 Previous: Director of Engineering at BharatPe ($2.8B unicorn)
+🚀 Before that: Engineering Lead at Blinkit/Grofers ($800M)
+
+He built BharatSwipe (India's First ZERO Commission POS) which processed 700+ Cr in transactions! He's also optimized deployments with 12x speed improvements.`,
+                suggestions: ['What skills does he have?', 'Show me his projects', 'His achievements?']
+            };
+        }
+
+        // Skills patterns
+        if (/\b(skill|tech|technology|stack|know|language|framework)\b/.test(msg)) {
+            const specificTech = /\b(react|node|java|python|aws|docker|ai|typescript|mongodb|postgres)\b/i.exec(msg);
+
+            if (specificTech) {
+                const tech = specificTech[0].toLowerCase();
+                let hasSkill = false;
+                let category = '';
+
+                for (const [cat, skills] of Object.entries(knowledgeBase.skills)) {
+                    if (skills.some(s => s.toLowerCase().includes(tech))) {
+                        hasSkill = true;
+                        category = cat;
+                        break;
+                    }
+                }
+
+                if (hasSkill) {
+                    return {
+                        type: 'skill_specific',
+                        response: `Yes! Krish is experienced with ${specificTech[0]}. It's part of his ${category} stack. 💪`,
+                        suggestions: ['Show all skills', 'His projects', 'Work experience']
+                    };
+                }
+            }
+
+            return {
+                type: 'skills',
+                response: `Krish's tech arsenal is impressive! Here's a breakdown:
+
+🎨 Frontend: ${knowledgeBase.skills.frontend.join(', ')}
+⚙️ Backend: ${knowledgeBase.skills.backend.join(', ')}
+💾 Database: ${knowledgeBase.skills.database.join(', ')}
+☁️ Cloud: ${knowledgeBase.skills.cloud.join(', ')}
+🤖 AI/ML: ${knowledgeBase.skills.ai.join(', ')}
+🔧 Other: ${knowledgeBase.skills.other.join(', ')}`,
+                suggestions: ['See his projects', 'Work experience', 'Contact info']
+            };
+        }
+
+        // Projects patterns
+        if (/\b(project|built|created|made|portfolio|work)\b/.test(msg)) {
+            return {
+                type: 'projects',
+                response: `Here are some of Krish's notable projects:
+
+${knowledgeBase.projects.map((p, i) => `${i + 1}. ${p}`).join('\n')}
+
+He's also published 8+ NPM packages and has multiple open-source contributions! 📦`,
+                suggestions: ['Tell me about BharatPe', 'His skills?', 'How to contact?']
+            };
+        }
+
+        // Contact patterns
+        if (/\b(contact|reach|email|linkedin|connect|hire|available)\b/.test(msg)) {
+            return {
+                type: 'contact',
+                response: `Here's how you can connect with Krish:
+
+📧 Email: ${knowledgeBase.contact.email}
+💼 LinkedIn: ${knowledgeBase.contact.linkedin}
+🐙 GitHub: ${knowledgeBase.contact.github}
+🐦 Twitter: ${knowledgeBase.contact.twitter}
+📅 Book a session: ${knowledgeBase.contact.topmate}
+
+He's available for advisory & consulting! 🤝`,
+                suggestions: ['Download resume', 'See his experience', 'His projects']
+            };
+        }
+
+        // Achievements patterns
+        if (/\b(achievement|award|recognition|accomplishment|won)\b/.test(msg)) {
+            return {
+                type: 'achievements',
+                response: `Krish's achievements include:
+
+${knowledgeBase.achievements.map((a, i) => `${i + 1}. ${a}`).join('\n')}
+
+Plus he's worked at 2 unicorns with a combined valuation of $3.6 billion! 🦄`,
+                suggestions: ['See his skills', 'His projects', 'Contact him']
+            };
+        }
+
+        // BharatPe specific
+        if (/bharatpe|bharat\s*pe/i.test(msg)) {
+            return {
+                type: 'bharatpe',
+                response: `At BharatPe, Krish was Director of Engineering and built BharatSwipe - India's First ZERO Commission POS system. It processed over 700 Crore rupees in transactions! BharatPe is a $2.8B fintech unicorn. 💰`,
+                suggestions: ['Other projects?', 'His current role?', 'Tech stack?']
+            };
+        }
+
+        // Resume patterns
+        if (/\b(resume|cv|download)\b/.test(msg)) {
+            return {
+                type: 'resume',
+                response: `You can download Krish's resume here! I'll open it in a new tab. 📄`,
+                action: 'download_resume',
+                suggestions: ['See his experience', 'Contact info', 'His projects']
+            };
+        }
+
+        // Thanks patterns
+        if (/\b(thanks|thank you|appreciate)\b/.test(msg)) {
+            return {
+                type: 'thanks',
+                response: `You're welcome! 😊 Feel free to ask me anything else about Krish's experience, skills, or projects. Want to connect with him?`,
+                suggestions: ['Contact info', 'See projects', 'Download resume']
+            };
+        }
+
+        // Default fallback
+        return {
+            type: 'fallback',
+            response: `I can help you learn about Krish! Try asking about:
+
+• His experience and work history
+• Technical skills and stack
+• Projects he's built
+• How to contact him
+• His achievements
+
+What would you like to know?`,
+            suggestions: ['Tell me about him', 'His experience', 'Contact info', 'Show projects']
+        };
+    }
+
+    // Create chat button
+    const chatBtn = document.createElement('button');
+    chatBtn.innerHTML = '💬';
+    chatBtn.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+        z-index: 10000;
+        transition: all 0.3s ease;
+    `;
+    chatBtn.title = 'Chat with AI Assistant';
+    document.body.appendChild(chatBtn);
+
+    // Button hover effect
+    chatBtn.addEventListener('mouseenter', () => {
+        chatBtn.style.transform = 'scale(1.1)';
+        chatBtn.style.boxShadow = '0 6px 30px rgba(124, 58, 237, 0.6)';
+    });
+    chatBtn.addEventListener('mouseleave', () => {
+        chatBtn.style.transform = 'scale(1)';
+        chatBtn.style.boxShadow = '0 4px 20px rgba(124, 58, 237, 0.4)';
+    });
+
+    // Create chat window
+    function createChatWindow() {
+        const chatWindow = document.createElement('div');
+        chatWindow.id = 'krish-chatbot';
+        chatWindow.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            left: 30px;
+            width: 380px;
+            height: 550px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border: 2px solid #7c3aed;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(124, 58, 237, 0.3);
+            z-index: 10001;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        `;
+
+        chatWindow.innerHTML = `
+            <div style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); color: white; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif;">
+                <div>
+                    <div style="font-weight: 700; font-size: 16px;">🤖 AI Assistant</div>
+                    <div style="font-size: 11px; opacity: 0.9;">Ask me about Krish!</div>
+                </div>
+                <button id="close-chat" style="background: transparent; border: none; color: white; font-size: 24px; cursor: pointer; width: 30px; height: 30px;">×</button>
+            </div>
+
+            <div id="chat-messages" style="flex: 1; overflow-y: auto; padding: 20px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; line-height: 1.6; display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: rgba(124, 58, 237, 0.2); padding: 12px 16px; border-radius: 12px; border-left: 3px solid #7c3aed;">
+                    <div style="color: #7c3aed; font-weight: 600; margin-bottom: 4px;">AI Assistant</div>
+                    <div style="color: #00ff88;">Hello! 👋 I'm here to help you learn about Krish. Ask me anything about his experience, skills, projects, or how to connect with him!</div>
+                </div>
+            </div>
+
+            <div id="chat-suggestions" style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid #333;"></div>
+
+            <div style="padding: 15px 20px; background: #0f0f0f; border-top: 1px solid #7c3aed; display: flex; gap: 10px;">
+                <input
+                    id="chat-input"
+                    type="text"
+                    placeholder="Ask me anything..."
+                    autocomplete="off"
+                    style="flex: 1; background: #1a1a1a; border: 1px solid #333; border-radius: 8px; padding: 10px 12px; color: #00ff88; font-family: 'Space Grotesk', sans-serif; font-size: 14px; outline: none;"
+                />
+                <button
+                    id="chat-send"
+                    style="background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); border: none; border-radius: 8px; padding: 10px 16px; color: white; font-weight: 600; cursor: pointer; transition: transform 0.2s;"
+                >
+                    Send
+                </button>
+            </div>
+        `;
+
+        document.body.appendChild(chatWindow);
+        return chatWindow;
+    }
+
+    const chatWindow = createChatWindow();
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const chatSuggestions = document.getElementById('chat-suggestions');
+
+    // Add message to chat
+    function addMessage(text, isUser = false, suggestions = []) {
+        const messageDiv = document.createElement('div');
+        messageDiv.style.cssText = isUser
+            ? 'background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%); padding: 12px 16px; border-radius: 12px; align-self: flex-end; max-width: 80%;'
+            : 'background: rgba(124, 58, 237, 0.2); padding: 12px 16px; border-radius: 12px; border-left: 3px solid #7c3aed; max-width: 90%;';
+
+        if (!isUser) {
+            messageDiv.innerHTML = `
+                <div style="color: #7c3aed; font-weight: 600; margin-bottom: 4px;">AI Assistant</div>
+                <div style="color: ${isUser ? 'white' : '#00ff88'}; white-space: pre-wrap;">${text}</div>
+            `;
+        } else {
+            messageDiv.innerHTML = `<div style="color: white;">${text}</div>`;
+        }
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Update suggestions
+        if (suggestions.length > 0) {
+            updateSuggestions(suggestions);
+        }
+    }
+
+    // Update suggestion chips
+    function updateSuggestions(suggestions) {
+        chatSuggestions.innerHTML = '';
+        suggestions.forEach(suggestion => {
+            const chip = document.createElement('button');
+            chip.textContent = suggestion;
+            chip.style.cssText = `
+                background: rgba(124, 58, 237, 0.2);
+                border: 1px solid #7c3aed;
+                border-radius: 16px;
+                padding: 6px 12px;
+                font-size: 12px;
+                color: #7c3aed;
+                cursor: pointer;
+                transition: all 0.2s;
+                font-family: 'Space Grotesk', sans-serif;
+            `;
+            chip.addEventListener('mouseenter', () => {
+                chip.style.background = '#7c3aed';
+                chip.style.color = 'white';
+            });
+            chip.addEventListener('mouseleave', () => {
+                chip.style.background = 'rgba(124, 58, 237, 0.2)';
+                chip.style.color = '#7c3aed';
+            });
+            chip.addEventListener('click', () => {
+                chatInput.value = suggestion;
+                sendMessage();
+            });
+            chatSuggestions.appendChild(chip);
+        });
+    }
+
+    // Send message
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // Add user message
+        addMessage(message, true);
+        chatInput.value = '';
+
+        // Get AI response
+        setTimeout(() => {
+            const response = findBestMatch(message);
+            addMessage(response.response, false, response.suggestions || []);
+
+            // Handle special actions
+            if (response.action === 'download_resume') {
+                window.open('/MohanaKrishnaPadda-Resume.pdf', '_blank');
+            }
+
+            chatHistory.push({ user: message, bot: response.response });
+        }, 500);
+    }
+
+    // Event listeners
+    chatBtn.addEventListener('click', () => {
+        isOpen = !isOpen;
+        chatWindow.style.display = isOpen ? 'flex' : 'none';
+        if (isOpen) {
+            chatInput.focus();
+        }
+    });
+
+    document.getElementById('close-chat').addEventListener('click', () => {
+        isOpen = false;
+        chatWindow.style.display = 'none';
+    });
+
+    document.getElementById('chat-send').addEventListener('click', sendMessage);
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Initial suggestions
+    updateSuggestions(['Tell me about Krish', 'His experience', 'What are his skills?', 'Contact info']);
+})();
+
+
