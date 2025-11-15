@@ -79,6 +79,131 @@ if (cursor && cursorFollower && !prefersReducedMotion) {
     });
 }
 
+// ==================== HERO PARTICLES ====================
+if (!prefersReducedMotion) {
+    const heroSection = document.querySelector('.hero');
+
+    if (heroSection) {
+        // Create particle container
+        const particleContainer = document.createElement('div');
+        particleContainer.className = 'particles-container';
+        particleContainer.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        `;
+
+        const heroBg = heroSection.querySelector('.hero-bg');
+        if (heroBg) {
+            heroBg.appendChild(particleContainer);
+        }
+
+        // Particle configuration
+        const particleCount = window.innerWidth < BREAKPOINTS.MOBILE ? 20 : 40;
+        const particles = [];
+
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            const size = Math.random() * 4 + 2;
+            const duration = Math.random() * 20 + 15;
+            const delay = Math.random() * 5;
+            const startX = Math.random() * 100;
+            const startY = Math.random() * 100;
+
+            // Random color from palette
+            const colors = ['#00ff88', '#00d4ff', '#7c3aed', '#ec4899'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            particle.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: ${color};
+                border-radius: 50%;
+                left: ${startX}%;
+                top: ${startY}%;
+                opacity: ${Math.random() * 0.5 + 0.2};
+                box-shadow: 0 0 ${size * 2}px ${color};
+                animation: float-particle ${duration}s linear ${delay}s infinite;
+            `;
+
+            particleContainer.appendChild(particle);
+            particles.push(particle);
+        }
+
+        // Create floating orbs
+        const orbCount = 3;
+        for (let i = 0; i < orbCount; i++) {
+            const orb = document.createElement('div');
+            const size = Math.random() * 300 + 200;
+            const duration = Math.random() * 25 + 20;
+            const delay = Math.random() * 5;
+
+            const colors = [
+                'rgba(0, 255, 136, 0.03)',
+                'rgba(0, 212, 255, 0.03)',
+                'rgba(124, 58, 237, 0.03)',
+                'rgba(236, 72, 153, 0.03)'
+            ];
+            const color = colors[i % colors.length];
+
+            orb.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                background: radial-gradient(circle, ${color} 0%, transparent 70%);
+                border-radius: 50%;
+                left: ${Math.random() * 80}%;
+                top: ${Math.random() * 80}%;
+                animation: float-orb ${duration}s ease-in-out ${delay}s infinite;
+                filter: blur(40px);
+            `;
+
+            particleContainer.appendChild(orb);
+        }
+
+        // Add particle animations
+        const particleStyles = document.createElement('style');
+        particleStyles.textContent = `
+            @keyframes float-particle {
+                0% {
+                    transform: translate(0, 0) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.8;
+                }
+                90% {
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * -500 - 200}px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes float-orb {
+                0%, 100% {
+                    transform: translate(0, 0) scale(1);
+                }
+                33% {
+                    transform: translate(50px, -50px) scale(1.1);
+                }
+                66% {
+                    transform: translate(-30px, 30px) scale(0.9);
+                }
+            }
+        `;
+        document.head.appendChild(particleStyles);
+    }
+}
+
 // ==================== SMOOTH SCROLL ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
