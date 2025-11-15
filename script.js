@@ -807,7 +807,7 @@ Available for: Advisory & Consulting
     terminalBtn.style.cssText = `
         position: fixed;
         bottom: 30px;
-        right: 30px;
+        right: 15px;
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -1609,7 +1609,7 @@ What would you like to know?`,
     chatBtn.style.cssText = `
         position: fixed;
         bottom: 30px;
-        left: 30px;
+        left: 15px;
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -1659,7 +1659,7 @@ What would you like to know?`,
                 border-radius: 0;
             ` : `
                 bottom: 100px;
-                left: 30px;
+                left: 15px;
                 width: 380px;
                 height: 550px;
                 border-radius: 20px;
