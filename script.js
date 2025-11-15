@@ -931,7 +931,6 @@ Available for: Advisory & Consulting
   experience  - Career journey
   projects    - Notable projects
   contact     - Contact information
-  resume      - Download resume
 
 🎮 MINI GAMES:
   snake       - Play classic Snake game
@@ -953,10 +952,6 @@ Available for: Advisory & Consulting
         experience: () => portfolioData.experience,
         projects: () => portfolioData.projects,
         contact: () => portfolioData.contact,
-        resume: () => {
-            window.open('/MohanaKrishnaPadda-Resume.pdf', '_blank');
-            return '📄 Opening resume in new tab...';
-        },
         clear: () => {
             clearTerminal();
             return '';
