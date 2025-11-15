@@ -818,6 +818,7 @@ Available for: Advisory & Consulting
         box-shadow: 0 4px 20px rgba(0, 255, 136, 0.4);
         z-index: 10000;
         transition: all 0.3s ease;
+        opacity: 0.85;
     `;
     terminalBtn.title = 'Open Terminal (Play Games & Explore)';
     document.body.appendChild(terminalBtn);
@@ -826,10 +827,12 @@ Available for: Advisory & Consulting
     terminalBtn.addEventListener('mouseenter', () => {
         terminalBtn.style.transform = 'scale(1.1)';
         terminalBtn.style.boxShadow = '0 6px 30px rgba(0, 255, 136, 0.6)';
+        terminalBtn.style.opacity = '1';
     });
     terminalBtn.addEventListener('mouseleave', () => {
         terminalBtn.style.transform = 'scale(1)';
         terminalBtn.style.boxShadow = '0 4px 20px rgba(0, 255, 136, 0.4)';
+        terminalBtn.style.opacity = '0.85';
     });
 
     // Create terminal modal
@@ -848,8 +851,19 @@ Available for: Advisory & Consulting
             backdrop-filter: blur(10px);
         `;
 
+        const isMobile = window.innerWidth < BREAKPOINTS.MOBILE;
         terminal.innerHTML = `
-            <div style="max-width: 1000px; margin: 50px auto; height: calc(100vh - 100px); display: flex; flex-direction: column; background: #0a0a0a; border: 2px solid #00ff88; border-radius: 12px; overflow: hidden; box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);">
+            <div style="${isMobile ? `
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            ` : `
+                max-width: 1000px;
+                margin: 50px auto;
+                height: calc(100vh - 100px);
+                border-radius: 12px;
+            `} display: flex; flex-direction: column; background: #0a0a0a; border: 2px solid #00ff88; overflow: hidden; box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);">
                 <!-- Terminal Header -->
                 <div style="background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%); color: #0a0a0a; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-weight: 600;">
                     <span>⌨️ KRISH.TERMINAL v1.0</span>
@@ -1601,6 +1615,7 @@ What would you like to know?`,
         box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
         z-index: 10000;
         transition: all 0.3s ease;
+        opacity: 0.85;
     `;
     chatBtn.title = 'Chat with AI Assistant';
     document.body.appendChild(chatBtn);
@@ -1609,25 +1624,38 @@ What would you like to know?`,
     chatBtn.addEventListener('mouseenter', () => {
         chatBtn.style.transform = 'scale(1.1)';
         chatBtn.style.boxShadow = '0 6px 30px rgba(124, 58, 237, 0.6)';
+        chatBtn.style.opacity = '1';
     });
     chatBtn.addEventListener('mouseleave', () => {
         chatBtn.style.transform = 'scale(1)';
         chatBtn.style.boxShadow = '0 4px 20px rgba(124, 58, 237, 0.4)';
+        chatBtn.style.opacity = '0.85';
     });
 
     // Create chat window
     function createChatWindow() {
         const chatWindow = document.createElement('div');
         chatWindow.id = 'krish-chatbot';
+        const isMobile = window.innerWidth < BREAKPOINTS.MOBILE;
         chatWindow.style.cssText = `
             position: fixed;
-            bottom: 100px;
-            left: 30px;
-            width: 380px;
-            height: 550px;
+            ${isMobile ? `
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            ` : `
+                bottom: 100px;
+                left: 30px;
+                width: 380px;
+                height: 550px;
+                border-radius: 20px;
+            `}
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             border: 2px solid #7c3aed;
-            border-radius: 20px;
             box-shadow: 0 10px 50px rgba(124, 58, 237, 0.3);
             z-index: 10001;
             display: none;
