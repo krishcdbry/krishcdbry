@@ -17,7 +17,7 @@
 
 From a curious kid who hacked together his first website in a small town to leading engineering teams at India's biggest fintech unicorns - my journey has been nothing short of an adventure. What started as a fascination with "How does this work?" has evolved into a decade-long obsession with building products that millions love and use daily.
 
-**The Plot Twist?** I'm completely self-taught. No CS degree, just relentless curiosity, countless nights of debugging, and an unwavering belief that code can change lives.
+**The Foundation?** Gold medalist in B.Tech Computer Science - where academic excellence met relentless curiosity, countless nights of debugging, and an unwavering belief that code can change lives.
 
 ### 💡 What Drives Me
 
