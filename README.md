@@ -132,7 +132,7 @@ Created and nurtured a thriving JavaScript community in Delhi NCR. Organized mee
 
 ### Personal Projects That Shaped Me
 
-🛠️ **JSON to OnCraft** - Developer tool & VSCode extension for instant schema conversion ([jsontooncraft.com](https://jsontooncraft.com/))
+🛠️ **JSON TOON CRAFT** - Developer tool & VSCode extension for instant schema conversion ([jsontooncraft.com](https://jsontooncraft.com/))
 🧬 **DevDNA** - AI-powered developer personality assessment platform ([devdna.live](https://www.devdna.live/))
 🏥 **Syraa AI** - Healthcare AI receptionist with 24/7 voice automation
 🏠 **Heartynote** - An online memorable diary (because memories matter)

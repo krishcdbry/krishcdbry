@@ -780,7 +780,7 @@ Other:     GraphQL, Kafka, ElasticSearch, Microservices
 ║                  NOTABLE PROJECTS                        ║
 ╚══════════════════════════════════════════════════════════╝
 
-→ JSON to OnCraft: Developer tool & VSCode extension (Live)
+→ JSON TOON CRAFT: Developer tool & VSCode extension (Live)
 → DevDNA: AI-powered developer profiling platform (Live)
 → Syraa AI: Healthcare AI receptionist (Live)
 → BharatSwipe: India's First ZERO Commission POS
@@ -1437,7 +1437,7 @@ Type any command to continue...
             other: ['GraphQL', 'Kafka', 'ElasticSearch', 'Microservices']
         },
         projects: [
-            'JSON to OnCraft: Developer tool & VSCode extension for schema conversion (Live)',
+            'JSON TOON CRAFT: Developer tool & VSCode extension for schema conversion (Live)',
             'DevDNA: AI-powered developer profiling platform (Live)',
             'Syraa AI: Healthcare AI receptionist (Live)',
             'BharatSwipe: India\'s First ZERO Commission POS (700+ Cr transactions)',
