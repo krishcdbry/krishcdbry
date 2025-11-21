@@ -601,24 +601,24 @@ body:hover .cursor {
 }
 
 .company-logo {
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    max-height: 50px;
-    z-index: 10;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    max-height: 60px;
 }
 
 .company-logo img {
-    max-height: 50px;
+    max-height: 60px;
     width: auto;
     display: block;
     object-fit: contain;
-    filter: brightness(0.95);
-    transition: filter 0.3s var(--ease-out-expo);
+    filter: brightness(1);
+    transition: all 0.3s var(--ease-out-expo);
 }
 
 .work-card:hover .company-logo img {
-    filter: brightness(1.1);
+    filter: brightness(1.15);
+    transform: translateX(4px);
 }
 
 .card-content {
