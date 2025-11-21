@@ -601,10 +601,11 @@ body:hover .cursor {
 }
 
 .company-logo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
     max-height: 50px;
+    z-index: 10;
 }
 
 .company-logo img {
@@ -618,6 +619,10 @@ body:hover .cursor {
 
 .work-card:hover .company-logo img {
     filter: brightness(1.1);
+}
+
+.card-content {
+    position: relative;
 }
 
 .view-more-btn {
