@@ -580,6 +580,26 @@ body:hover .cursor {
     margin-bottom: 1rem;
 }
 
+.card-image {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s var(--ease-out-expo);
+}
+
+.work-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
 .view-more-btn {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
