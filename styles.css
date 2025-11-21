@@ -600,6 +600,26 @@ body:hover .cursor {
     transform: scale(1.05);
 }
 
+.company-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    max-height: 50px;
+}
+
+.company-logo img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    filter: brightness(0.95);
+    transition: filter 0.3s var(--ease-out-expo);
+}
+
+.work-card:hover .company-logo img {
+    filter: brightness(1.1);
+}
+
 .view-more-btn {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
