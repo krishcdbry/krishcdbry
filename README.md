@@ -1,5 +1,6 @@
-<h1 align="center">Mohana Krishna Padda</h1>
-<h3 align="center">SVP Engineering @ Sprive | Building at Scale for 15+ Years</h3>
+<h1 align="center">Krish 🥷</h1>
+<h3 align="center">SVP Engineering at Sprive | Ex - BharatPe, Blinkit </h3>
+<h4 align="center">Creator of NexaDB, DBView, JsonToonCraft| Build 20+ Products | Tech Architect Behind 5+ Startups</h4>
 
 <p align="center">
   <a href="https://linkedin.com/in/krishcdbry"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
@@ -20,12 +21,29 @@
 <td align="center"><b>15+</b><br/>Years Experience</td>
 </tr>
 <tr>
-<td align="center"><b>5+</b><br/>Startups Founded</td>
-<td align="center"><b>18+</b><br/>Personal Projects</td>
-<td align="center"><b>1.5M</b><br/>AI Translations < $100K</td>
-<td align="center"><b>Top 1%</b><br/>Topmate Advisor</td>
+<td align="center"><b>5+</b><br/>Startups Advised</td>
+<td align="center"><b>20+</b><br/>Personal Projects</td>
+<td align="center"><b>1.5M</b><br/>AI Translations < $100</td>
+<td align="center"><b>Top 1%</b><br/>Topmate</td>
 </tr>
 </table>
+
+---
+
+### Opensource
+
+| Project | Description |
+|---------|-------------|
+| **[NexaDB](https://github.com/krishcdbry/nexadb)** | Database for AI Developers - Beat MongoDB, Cassandra in YCMB Benchmarks |
+
+---
+
+### Projects
+
+| Project | Description |
+|---------|-------------|
+| **[DBView](https://github.com/krishcdbry/dbview)** | World's Best Database Client - Free, Native & AI-Powered |
+| **[JsonToonCraft](https://github.com/krishcdbry/jsontooncroft)** | 10+ dev tools (JSON→TS, JWT debug, Base64) • 100% client-side |
 
 ---
 
@@ -78,27 +96,8 @@
 
 ---
 
-### 🚀 Open Source
-
-| Project | Description |
-|---------|-------------|
-| **[NexaDB](https://github.com/krishcdbry/nexadb)** | Database for AI Developers - Beat MongoDB, Cassandra in YCMB Benchmarks |
-| **[DBView](https://github.com/krishcdbry/dbview)** | World's Best Database Client - Free, Native & AI-Powered |
-| **[JsonToonCraft](https://github.com/krishcdbry/jsontooncroft)** | 10+ dev tools (JSON→TS, JWT debug, Base64) • 100% client-side |
-
----
-
-### 📊 GitHub Stats
-
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=krishcdbry&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="165"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=krishcdbry&theme=tokyonight&hide_border=true" alt="GitHub Streak" height="165"/>
-</p>
-
----
-
-<p align="center">
-  <i>"I want to die on Mars."</i>
+  <i>"See you soon on Mars."</i>
 </p>
 
 <p align="center">
