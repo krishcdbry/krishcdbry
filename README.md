@@ -1,6 +1,6 @@
 <h1 align="center">Krish 🥷</h1>
 <h3 align="center">SVP Engineering at Sprive | Ex - BharatPe, Blinkit </h3>
-<h4 align="center">Creator of NexaDB, DBView, JsonToonCraft| Build 20+ Products | Tech Architect Behind 5+ Startups</h4>
+<h4 align="center">Creator of NexaDB, DBView, DBCraft, JsonToonCraft| Build 20+ Products | Tech Architect Behind 5+ Startups</h4>
 
 <p align="center">
   <a href="https://linkedin.com/in/krishcdbry"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
