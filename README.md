@@ -35,6 +35,7 @@
 | Project | Description |
 |---------|-------------|
 | **[NexaDB](https://github.com/krishcdbry/nexadb)** | Database for AI Developers - Beat MongoDB, Cassandra in YCMB Benchmarks |
+| **[ControlTower](https://github.com/krishcdbry/controltower)** | Modern Backend Development Framework - Build APIs faster with auto-generated endpoints |
 
 ---
 
@@ -43,6 +44,7 @@
 | Project | Description |
 |---------|-------------|
 | **[DBView](https://github.com/krishcdbry/dbview)** | World's Best Database Client - Free, Native & AI-Powered |
+| **[DBCraft](https://github.com/krishcdbry/dbcraft)** | Visual Database Designer & Schema Builder - Design, Export & Deploy |
 | **[JsonToonCraft](https://github.com/krishcdbry/jsontooncroft)** | 10+ dev tools (JSON→TS, JWT debug, Base64) • 100% client-side |
 
 ---
