@@ -30,17 +30,32 @@
 
 ---
 
+### 🏦 Currently @ Sprive
+
+Transforming UK fintech infrastructure and product to help homeowners become mortgage-free faster. **Half a million users. £50bn in tracked mortgages. £35m through the platform every month.** I lead Engineering, QA, DevOps, Security and Compliance, and set the roadmap with the founders.
+
+- 📈 Grew monthly transaction volume **20x**, from £1.6m to £35m in 16 months
+- 💳 Built payment infrastructure that has moved over **£500m**
+- 🐉 Carried Sprive through **Dragons' Den**: 100K requests a second, zero downtime, **#1 in UK App Store Finance**
+- 🔐 Took Sprive to **PCI DSS v4.0.1 in 10 weeks**, isolated CDE and tokenised card capture
+- 🔑 Shipped **Passkeys**, now used by over half of active users
+- 💰 Cut AWS spend **42%** in four months, saving over **$100K a year**
+- 🤝 Built a referral platform in two weeks that drives **40% of new customers**
+- 🤖 Launched AI support that resolves **40% of tickets** on its own and assists on 90%
+
+---
+
 ### 🚀 Shipping Now
 
 | Product | What it does |
 |---------|--------------|
 | **[NexaDB](https://nexadb.io)** | Database for AI developers. Vector search, TOON format, 25K+ ops/sec at 0.039ms. [Source](https://github.com/krishcdbry/nexadb) |
-| **[SlatePlan](https://slateplan.dev)** | Sprint planning without the clutter. Table, board, timeline and burndown over one sprint, with git branch auto-linking |
+| **[SlatePlan](https://slateplan.dev)** | Sprint planning without the clutter. Table, board, timeline and burndown over one sprint, with git branch auto-linking. Runs delivery at Sprive |
 | **[Karcha](https://karcha.me)** | Shared expense tracking. Snap a receipt, text the Telegram bot or paste from WhatsApp, in any currency |
 | **[Staffelog](https://staffelog.com)** | Meal issuance tracking for canteens. A barcode per ID card, so nobody collects the same meal twice |
 | **[Utilee](https://utilee.dev)** | 12 browser tools for video makers. Speech timing, teleprompter, SRT and VTT, safe zones, timecodes |
 | **[DBView](https://dbview.io)** | Native macOS SQL client. AI-powered editor, ERD visualization, SSH tunneling |
-| **[DBCraft](https://dbcraft.io)** | Open source data dashboard platform. Rust backend, 20+ chart types, self-hosted |
+| **[DBCraft](https://dbcraft.io)** | Open source data dashboard platform. Rust backend, 20+ chart types, self-hosted. In production at Sprive, cutting reporting from a week to under 10 minutes |
 | **[Control Tower](https://control-tower.dev)** | macOS menu bar app tracking AI assistant usage across 6+ providers. [Source](https://github.com/krishcdbry/ControlTower) |
 | **[JsonToonCraft](https://jsontooncraft.com)** | 10+ dev tools. JSON to TS/Zod/OpenAPI, JWT debug, Base64, 100% client-side |
 
