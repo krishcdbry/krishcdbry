@@ -16,14 +16,20 @@
 <table>
 <tr>
 <td align="center"><b>$12.8B+</b><br/>Unicorn Valuation Built</td>
-<td align="center"><b>₹700Cr+</b><br/>Transaction Volume</td>
-<td align="center"><b>20 → 200+</b><br/>Engineering Team Scaled</td>
-<td align="center"><b>15+</b><br/>Years Experience</td>
+<td align="center"><b>£500m+</b><br/>Payments Processed</td>
+<td align="center"><b>£50bn</b><br/>Mortgages Tracked</td>
+<td align="center"><b>500K</b><br/>Users Served</td>
 </tr>
 <tr>
-<td align="center"><b>5+</b><br/>Startups Advised</td>
+<td align="center"><b>20 → 200+</b><br/>Engineering Team Scaled</td>
+<td align="center"><b>15+</b><br/>Years Experience</td>
+<td align="center"><b>5+</b><br/>Startups Founded</td>
 <td align="center"><b>25+</b><br/>Personal Projects</td>
+</tr>
+<tr>
 <td align="center"><b>1.5M</b><br/>AI Translations < $100K</td>
+<td align="center"><b>100K/sec</b><br/>Peak Requests</td>
+<td align="center"><b>PCI DSS</b><br/>v4.0.1 in 10 Weeks</td>
 <td align="center"><b>Top 1%</b><br/>Topmate</td>
 </tr>
 </table>
