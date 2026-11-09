@@ -18,7 +18,7 @@
 <td align="center"><b>$12.8B+</b><br/>Unicorn Valuation Built</td>
 <td align="center"><b>£500m+</b><br/>Payments Processed</td>
 <td align="center"><b>£50bn</b><br/>Mortgages Tracked</td>
-<td align="center"><b>500K</b><br/>Users Served</td>
+<td align="center"><b>10M+</b><br/>Merchants & Users Served</td>
 </tr>
 <tr>
 <td align="center"><b>20 → 200+</b><br/>Engineering Team Scaled</td>
