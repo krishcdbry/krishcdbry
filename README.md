@@ -1,10 +1,10 @@
 <h1 align="center">Krish 🥷</h1>
-<h3 align="center">SVP Engineering at Sprive | Ex - BharatPe, Blinkit </h3>
-<h4 align="center">Creator of NexaDB, DBView, DBCraft, JsonToonCraft| Build 20+ Products | Tech Architect Behind 5+ Startups</h4>
+<h3 align="center">SVP Engineering at Sprive | Ex - BharatPe, Blinkit</h3>
+<h4 align="center">Creator of NexaDB, SlatePlan, DBView, DBCraft | Built 25+ Products | Tech Architect Behind 5+ Startups</h4>
 
 <p align="center">
   <a href="https://linkedin.com/in/krishcdbry"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
-  <a href="https://twitter.com/krishcdbry"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+  <a href="https://x.com/krishcdbry"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white"/></a>
   <a href="https://topmate.io/krishcdbry"><img src="https://img.shields.io/badge/Topmate-FF6B6B?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHoiLz48L3N2Zz4=&logoColor=white"/></a>
   <a href="https://krishcdbry.com"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white"/></a>
 </p>
@@ -22,30 +22,41 @@
 </tr>
 <tr>
 <td align="center"><b>5+</b><br/>Startups Advised</td>
-<td align="center"><b>20+</b><br/>Personal Projects</td>
-<td align="center"><b>1.5M</b><br/>AI Translations < $100</td>
+<td align="center"><b>25+</b><br/>Personal Projects</td>
+<td align="center"><b>1.5M</b><br/>AI Translations < $100K</td>
 <td align="center"><b>Top 1%</b><br/>Topmate</td>
 </tr>
 </table>
 
 ---
 
-### Opensource
+### 🚀 Shipping Now
 
-| Project | Description |
-|---------|-------------|
-| **[NexaDB](https://github.com/krishcdbry/nexadb)** | Database for AI Developers - Beat MongoDB, Cassandra in YCMB Benchmarks |
-| **[ControlTower](https://github.com/krishcdbry/controltower)** | Modern Backend Development Framework - Build APIs faster with auto-generated endpoints |
+| Product | What it does |
+|---------|--------------|
+| **[NexaDB](https://nexadb.io)** | Database for AI developers. Vector search, TOON format, 25K+ ops/sec at 0.039ms. [Source](https://github.com/krishcdbry/nexadb) |
+| **[SlatePlan](https://slateplan.dev)** | Sprint planning without the clutter. Table, board, timeline and burndown over one sprint, with git branch auto-linking |
+| **[Karcha](https://karcha.me)** | Shared expense tracking. Snap a receipt, text the Telegram bot or paste from WhatsApp, in any currency |
+| **[Staffelog](https://staffelog.com)** | Meal issuance tracking for canteens. A barcode per ID card, so nobody collects the same meal twice |
+| **[Utilee](https://utilee.dev)** | 12 browser tools for video makers. Speech timing, teleprompter, SRT and VTT, safe zones, timecodes |
+| **[DBView](https://dbview.io)** | Native macOS SQL client. AI-powered editor, ERD visualization, SSH tunneling |
+| **[DBCraft](https://dbcraft.io)** | Open source data dashboard platform. Rust backend, 20+ chart types, self-hosted |
+| **[Control Tower](https://control-tower.dev)** | macOS menu bar app tracking AI assistant usage across 6+ providers. [Source](https://github.com/krishcdbry/ControlTower) |
+| **[JsonToonCraft](https://jsontooncraft.com)** | 10+ dev tools. JSON to TS/Zod/OpenAPI, JWT debug, Base64, 100% client-side |
 
 ---
 
-### Projects
+### 📦 Open Source
 
-| Project | Description |
-|---------|-------------|
-| **[DBView](https://github.com/krishcdbry/dbview)** | World's Best Database Client - Free, Native & AI-Powered |
-| **[DBCraft](https://github.com/krishcdbry/dbcraft)** | Visual Database Designer & Schema Builder - Design, Export & Deploy |
-| **[JsonToonCraft](https://github.com/krishcdbry/jsontooncroft)** | 10+ dev tools (JSON→TS, JWT debug, Base64) • 100% client-side |
+| Repo | Description |
+|------|-------------|
+| **[nexadb](https://github.com/krishcdbry/nexadb)** | NoSQL database with built-in vector search, TOON format and enterprise security |
+| **[nexa-cli](https://github.com/krishcdbry/nexa-cli)** | The CLI for NexaDB |
+| **[nexaclient](https://github.com/krishcdbry/nexaclient)** · **[java](https://github.com/krishcdbry/nexaclient-java)** · **[python](https://github.com/krishcdbry/nexaclient-python)** | Official NexaDB clients |
+| **[ControlTower](https://github.com/krishcdbry/ControlTower)** | macOS menu bar app for AI coding assistant usage, quotas and costs |
+| **[homebrew-tap](https://github.com/krishcdbry/homebrew-tap)** | Homebrew tap for my projects |
+| **[url-scraper](https://github.com/krishcdbry/url-scraper)** | Finds URLs in text, scrapes them, returns structured page info |
+| **[virtual-scroll](https://github.com/krishcdbry/virtual-scroll)** | Virtual scrolling message list with optimal DOM usage |
 
 ---
 
@@ -66,6 +77,7 @@
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white)
 ![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white)
 ![gRPC](https://img.shields.io/badge/gRPC-244c5a?style=flat-square&logo=google&logoColor=white)
 
@@ -74,6 +86,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Swift](https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 
 **AI/ML**
