@@ -55,7 +55,7 @@ Transforming UK fintech infrastructure and product to help homeowners become mor
 
 | Product | What it does |
 |---------|--------------|
-| **[NexaDB](https://nexadb.io)** | Database for AI developers. Vector search, TOON format, 25K+ ops/sec at 0.039ms. [Source](https://github.com/krishcdbry/nexadb) |
+| **[NexaDB](https://nexadb.dev)** | Database for AI developers. Vector search, TOON format, 25K+ ops/sec at 0.039ms. [Source](https://github.com/krishcdbry/nexadb) |
 | **[SlatePlan](https://slateplan.dev)** | Sprint planning without the clutter. Table, board, timeline and burndown over one sprint, with git branch auto-linking. Runs delivery at Sprive |
 | **[Karcha](https://karcha.me)** | Shared expense tracking. Snap a receipt, text the Telegram bot or paste from WhatsApp, in any currency |
 | **[Staffelog](https://staffelog.com)** | Meal issuance tracking for canteens. A barcode per ID card, so nobody collects the same meal twice |
